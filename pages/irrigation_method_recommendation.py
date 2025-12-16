@@ -18,9 +18,9 @@ METHOD_LABEL = ["Conventional/Fixed scheduling", "Deficit/Partial irrigation", "
 
 METHOD_LABEL.sort()
 
-onehot_encoder = load_pickle_files(encoder)
-standard_scaler = load_pickle_files(scaler)
-model = load_pickle_files(rf_model)
+onehot_encoder = load_pickle_files(encoder.pkl)
+standard_scaler = load_pickle_files(scaler.pkl)
+model = load_pickle_files(rf_model.pkl)
 
 st.set_page_config(
     page_title="Irrigation Method Recommendation",
