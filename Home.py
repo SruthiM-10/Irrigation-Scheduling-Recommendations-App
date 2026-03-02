@@ -100,7 +100,7 @@ with st.form("irrigation_form"):
             ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
         )
 
-    model_type = st.selectbox("Model Type", ["XGBoost_Model"])
+    model_type = st.selectbox("Model Type", ["XGBoost_Model (Recommended)"])
     
     submit_button = st.form_submit_button("Get Irrigation Recommendation")
 if submit_button:
@@ -124,6 +124,9 @@ if submit_button:
         user_input[NUMERIC_COLUMNS[2]].append(altitude)
 
     user_dict = pd.DataFrame(user_input)
+
+    if model_type == "XGBoost_Model (Recommended)":
+        model_type = "XGBoost_Model"
     model = load_model(model_type)
     predictions = model.predict(user_dict)
 
