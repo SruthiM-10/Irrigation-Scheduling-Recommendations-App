@@ -142,8 +142,8 @@ if submit_button:
 
     st.markdown("### 🌟 Recommended Irrigation Method")
     st.info(f"""
-    **The best irrigation method for your location is {best_two_options[0]}**
-    **The second best irrigation method for your location is {best_two_options[1]}**
+    **The best irrigation method for your location is {best_two_options[0]}**.
+    **The second best irrigation method for your location is {best_two_options[1]}**.
 
     Based on your inputs, **{best_two_options[0]}** is recommended for optimal water efficiency and crop yield.
     This method is particularly effective for your selected plant type and location.
