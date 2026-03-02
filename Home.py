@@ -10,7 +10,7 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 from collections import defaultdict
-from Utils import load_models
+from Utils import load_model
 
 CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
 NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
