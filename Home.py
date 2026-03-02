@@ -124,14 +124,12 @@ if submit_button:
         user_input[NUMERIC_COLUMNS[2]].append(altitude)
 
     user_dict = pd.DataFrame(user_input)
-    user_dict_array = user_dict.values
-    # loop through each row and predict the irrigation method
-    irrigation_method_yield = {}
-
     model = load_model(model_type)
-    for index, row in enumerate(user_dict_array):
-      plant_yield = model.predict([row])[0]
-      irrigation_method_yield[METHOD_LABEL[index]] = plant_yield
+    predictions = model.predict(user_dict)
+
+    irrigation_method_yield = dict(
+        zip(METHOD_LABEL, predictions)
+    )
 
     # sort the dictionary based on the yield
     sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
