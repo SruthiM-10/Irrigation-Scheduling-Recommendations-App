@@ -100,11 +100,9 @@ with st.form("irrigation_form"):
             ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
         )
 
-    model_type_button = st.selectbox("Model Type", ["XGBoost_Model"])
+    model_type = st.selectbox("Model Type", ["XGBoost_Model"])
     
-    if model_type_button:
-        # Submit button
-        submit_button = st.form_submit_button("Get Irrigation Recommendation")
+    submit_button = st.form_submit_button("Get Irrigation Recommendation")
 if submit_button:
     st.success("Form submitted successfully!")
 
@@ -130,6 +128,7 @@ if submit_button:
     # loop through each row and predict the irrigation method
     irrigation_method_yield = {}
 
+    model = load_model(model_type)
     for index, row in enumerate(user_dict_array):
       plant_yield = model.predict([row])[0]
       irrigation_method_yield[METHOD_LABEL[index]] = plant_yield
