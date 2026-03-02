@@ -126,16 +126,6 @@ if submit_button:
         user_input[NUMERIC_COLUMNS[2]].append(altitude)
 
     user_dict = pd.DataFrame(user_input)
-    # encode the categorical columns
-    ohe_labels = onehot_encoder.get_feature_names_out(CAT_COLUMNS)
-    cat_data = onehot_encoder.transform(user_dict[CAT_COLUMNS])
-    cat_df = pd.DataFrame(cat_data, columns=ohe_labels)
-    # drop the columns from the user dataframe
-    user_dict.drop(CAT_COLUMNS, axis=1, inplace=True)
-    # concat the user dataframe and the encoded dataframe
-    user_dict = pd.concat([cat_df, user_dict], axis=1)
-    # scale the numeric columns
-    user_dict[NUMERIC_COLUMNS] = standard_scaler.transform(user_dict[NUMERIC_COLUMNS])
     user_dict_array = user_dict.values
     # loop through each row and predict the irrigation method
     irrigation_method_yield = {}
