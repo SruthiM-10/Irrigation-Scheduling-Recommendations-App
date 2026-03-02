@@ -10,17 +10,13 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 from collections import defaultdict
-from Utils import load_pickle_files
+from Utils import load_models
 
-CAT_COLUMNS = ["plant_type_standardized_to_6", "method_label"]
-NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric", "water_productivity_kg_per_m^3"]
-METHOD_LABEL = ["Conventional/Fixed scheduling", "Deficit/Partial irrigation", "Evapotranspiration-based", "Soil-moisture-based", "Plant- or climate-based"]
-
+CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
+NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
+METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
+                , "Specialized Irrigation Delivery"]
 METHOD_LABEL.sort()
-
-onehot_encoder = load_pickle_files("encoder.pkl")
-standard_scaler = load_pickle_files("scaler.pkl")
-model = load_pickle_files("rf_model.pkl")
 
 st.set_page_config(
     page_title="Irrigation Method Recommendation",
@@ -89,26 +85,26 @@ with st.form("irrigation_form"):
 
     st.markdown("### Crop Information")
 
-    # Water productivity and plant type in the same row
+    # Soil type and plant type in the same row
     col4, col5 = st.columns(2)
     with col4:
-        water_productivity = st.number_input(
-            "Water Productivity (kg/m³)",
-            min_value=0.0,
-            max_value=100.0,
-            value=1.0,
-            step=0.1,
-            format="%.2f"
+        soil_type = st.selectbox(
+            "Soil Type",
+            ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
+             'silty clay loams', 'silty clay', 'clay']
         )
 
     with col5:
         plant_type = st.selectbox(
             "Plant Type",
-            ["Vegetables", "Grains", "Fruits", "Oil / Fiber / Industrial Crops", "Legumes"]
+            ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
         )
 
-    # Submit button
-    submit_button = st.form_submit_button("Get Irrigation Recommendation")
+    model_type_button = st.selectbox("Model Type", ["XGBoost_Model"])
+    
+    if model_type_button:
+        # Submit button
+        submit_button = st.form_submit_button("Get Irrigation Recommendation")
 if submit_button:
     st.success("Form submitted successfully!")
 
@@ -156,12 +152,8 @@ if submit_button:
     st.markdown("### 🌟 Recommended Irrigation Method")
     st.info(f"""
     **The best irrigation method for your location is {best_two_options[0]}**
-
-    Based on your inputs, **{best_two_options[0]}** is recommended for optimal water efficiency and crop yield.
-    This method is particularly effective for your selected plant type and location.
-
     **The second best irrigation method for your location is {best_two_options[1]}**
 
-    Based on your inputs, **{best_two_options[1]}** is the second best option recommended for optimal water efficiency and crop yield.
+    Based on your inputs, **{best_two_options[0]}** is recommended for optimal water efficiency and crop yield.
     This method is particularly effective for your selected plant type and location.
     """)
