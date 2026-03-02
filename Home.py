@@ -113,17 +113,17 @@ if submit_button:
         st.write(f"- Latitude: {latitude}°")
         st.write(f"- Longitude: {longitude}°")
         st.write(f"- Altitude: {altitude} meters")
-        st.write(f"- Water Productivity: {water_productivity} kg/m³")
+        st.write(f"- Soil Type: {soil_type}")
         st.write(f"- Plant Type: {plant_type}")
 
     user_input = defaultdict(list)
     for method in METHOD_LABEL:
         user_input[CAT_COLUMNS[0]].append(plant_type)
         user_input[CAT_COLUMNS[1]].append(method)
+        user_input[CAT_COLUMNS[2]].append(soil_type)
         user_input[NUMERIC_COLUMNS[0]].append(latitude)
         user_input[NUMERIC_COLUMNS[1]].append(longitude)
         user_input[NUMERIC_COLUMNS[2]].append(altitude)
-        user_input[NUMERIC_COLUMNS[3]].append(water_productivity)
 
     user_dict = pd.DataFrame(user_input)
     # encode the categorical columns
