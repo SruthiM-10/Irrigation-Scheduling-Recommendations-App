@@ -100,7 +100,7 @@ with st.form("irrigation_form"):
             ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
         )
 
-    model_type = st.selectbox("Model Type", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
+    model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
                                             "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
     
     submit_button = st.form_submit_button("Get Irrigation Recommendation")
