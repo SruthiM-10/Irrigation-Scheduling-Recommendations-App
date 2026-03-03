@@ -108,57 +108,56 @@ if st.session_state.page == 'home':
         st.session_state.model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
                                                 "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
 
-        def on_submit_clicked():
-            latitude = st.session_state.latitude
-            longitude = st.session_state.longitude
-            altitude = st.session_state.altitude
-            soil_type = st.session_state.soil_type
-            plant_type = st.session_state.plant_type
-            model_type = st.session_state.model_type
-
-            st.success("Form submitted successfully!")
-        
-            # Display the input values (for demonstration)
-            with st.expander("View Input Parameters"):
-                st.write(f"- Latitude: {latitude}°")
-                st.write(f"- Longitude: {longitude}°")
-                st.write(f"- Altitude: {altitude} meters")
-                st.write(f"- Soil Type: {soil_type}")
-                st.write(f"- Plant Type: {plant_type}")
-        
-            user_input = defaultdict(list)
-            for method in METHOD_LABEL:
-                user_input[CAT_COLUMNS[0]].append(plant_type)
-                user_input[CAT_COLUMNS[1]].append(method)
-                user_input[CAT_COLUMNS[2]].append(soil_type)
-                user_input[NUMERIC_COLUMNS[0]].append(latitude)
-                user_input[NUMERIC_COLUMNS[1]].append(longitude)
-                user_input[NUMERIC_COLUMNS[2]].append(altitude)
-        
-            user_dict = pd.DataFrame(user_input)
-        
-            if model_type == "XGBoost_Model (Recommended)":
-                model_type = "XGBoost_Model"
-            model = load_model(model_type)
-            predictions = model.predict(user_dict)
-        
-            irrigation_method_yield = dict(
-                zip(METHOD_LABEL, predictions)
-            )
-        
-            # sort the dictionary based on the yield
-            sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
-            # select the best first two options
-            best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
-            st.session_state.best_two_options = best_two_options
+        def go_to_results():
             st.session_state.page = 'results'
-        submit_button = st.form_submit_button("Get Irrigation Recommendation", on_click=on_submit_clicked)
+
+        submit_button = st.form_submit_button("Get Irrigation Recommendation", on_click=go_to_results)
 
 elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
     
-    best_two_options = st.session_state.best_two_options
+    latitude = st.session_state.latitude
+    longitude = st.session_state.longitude
+    altitude = st.session_state.altitude
+    soil_type = st.session_state.soil_type
+    plant_type = st.session_state.plant_type
+    model_type = st.session_state.model_type
+
+    st.success("Form submitted successfully!")
+
+    # Display the input values (for demonstration)
+    with st.expander("View Input Parameters"):
+        st.write(f"- Latitude: {latitude}°")
+        st.write(f"- Longitude: {longitude}°")
+        st.write(f"- Altitude: {altitude} meters")
+        st.write(f"- Soil Type: {soil_type}")
+        st.write(f"- Plant Type: {plant_type}")
+
+    user_input = defaultdict(list)
+    for method in METHOD_LABEL:
+        user_input[CAT_COLUMNS[0]].append(plant_type)
+        user_input[CAT_COLUMNS[1]].append(method)
+        user_input[CAT_COLUMNS[2]].append(soil_type)
+        user_input[NUMERIC_COLUMNS[0]].append(latitude)
+        user_input[NUMERIC_COLUMNS[1]].append(longitude)
+        user_input[NUMERIC_COLUMNS[2]].append(altitude)
+
+    user_dict = pd.DataFrame(user_input)
+
+    if model_type == "XGBoost_Model (Recommended)":
+        model_type = "XGBoost_Model"
+    model = load_model(model_type)
+    predictions = model.predict(user_dict)
+
+    irrigation_method_yield = dict(
+        zip(METHOD_LABEL, predictions)
+    )
+
+    # sort the dictionary based on the yield
+    sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
+    # select the best first two options
+    best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
     
     st.markdown("### 🌟 Recommended Irrigation Method")
     st.info(f"""
