@@ -167,3 +167,8 @@ elif st.session_state.page == 'results':
     Based on your inputs, **{best_two_options[0]}** is recommended for optimal water efficiency and crop yield.
     This method is particularly effective for your selected plant type and location.
     """)
+
+    st.markdown(f"## Related Research Papers and Configurations for {best_two_options[0]}")
+    st.markdown(f"## Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling")
+    st.markdown("## Estimated Cost Range")
+    
