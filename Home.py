@@ -105,7 +105,7 @@ if st.session_state.page == 'home':
                 ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
             )
     
-        model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
+        st.session_state.model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
                                                 "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
 
         def on_submit_clicked():
@@ -114,7 +114,7 @@ if st.session_state.page == 'home':
             altitude = st.session_state.altitude
             soil_type = st.session_state.soil_type
             plant_type = st.session_state.plant_type
-
+            model_type = st.session_state.model_type
 
             st.success("Form submitted successfully!")
         
