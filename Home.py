@@ -18,15 +18,16 @@ st.set_page_config(
     layout="centered"
 )
 
+CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
+NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
+METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
+                , "Specialized Irrigation Delivery"]
+METHOD_LABEL.sort()
+
 if 'page' not in st.session_state:
     st.session_state.page = 'home'
 
 if st.session_state.page == 'home':
-    CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
-    NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
-    METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
-                    , "Specialized Irrigation Delivery"]
-    METHOD_LABEL.sort()
     
     st.markdown("""
     <style>
@@ -107,14 +108,12 @@ if st.session_state.page == 'home':
         model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
                                                 "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
 
-
         def on_submit_clicked():
             latitude = st.session_state.latitude
             longitude = st.session_state.longitude
             altitude = st.session_state.altitude
             soil_type = st.session_state.soil_type
             plant_type = st.session_state.plant_type
-            method = st.session_state.method
 
 
             st.success("Form submitted successfully!")
