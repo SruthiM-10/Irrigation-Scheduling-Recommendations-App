@@ -11,8 +11,8 @@ def load_related_data(user_data):
   dataset = pd.read_csv("final_dataset_updated_doi.csv")
   dataset = dataset[dataset['irrigation_scheduling_method_standardized'] == user_data.loc[0, 'irrigation_scheduling_method_standardized']]
 
-  dataset['distance'] = (dataset['latitude_decimal_degrees'] - user_data.loc[0, 'latitude_decmal_degrees'])**2 + \
-                        (dataset['longitude_decimal_degrees'] - user_data.loc[0, 'longitude_decmal_degrees'])**2
+  dataset['distance'] = (dataset['latitude_decimal_degrees'] - user_data.loc[0, 'latitude_decimal_degrees'])**2 + \
+                        (dataset['longitude_decimal_degrees'] - user_data.loc[0, 'longitude_decimal_degrees'])**2
   min_distance = dataset['distance'].min()
   closest_rows = dataset[dataset['distance'] == min_distance]
 
