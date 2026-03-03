@@ -108,7 +108,7 @@ if st.session_state.page == 'home':
                                                 "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
         
         submit_button = st.form_submit_button("Get Irrigation Recommendation", on_click=on_submit_clicked)
-    def on_submit_clicked:
+    def on_submit_clicked():
         st.success("Form submitted successfully!")
     
         # Display the input values (for demonstration)
