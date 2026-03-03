@@ -175,8 +175,8 @@ elif st.session_state.page == 'results':
     """)
 
     st.markdown(f"#### Related Research Papers and Configurations for {best_two_options[0]}")
-    st.info(f"""{user_dict.loc[0, 'irrigation_scheduling_method_standardized']}""")
-    related_rows = load_related_data(user_dict)
+    # st.info(f"""{user_dict.loc[0, 'irrigation_scheduling_method_standardized']}""")
+    related_rows = load_related_data(user_dict, best_two_options[0])
     if related_rows == -1:
         st.info("""No related data found""")
     else:
