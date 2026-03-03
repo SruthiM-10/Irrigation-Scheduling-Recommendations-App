@@ -172,7 +172,8 @@ elif st.session_state.page == 'results':
     related_rows = load_related_data(user_dict)
     if related_rows == -1:
         st.info("""No related data found""")
-    st.dataframe(related_rows)
+    else:
+        st.dataframe(related_rows)
     st.markdown(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling")
     st.markdown("#### Estimated Cost Range")
     
