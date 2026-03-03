@@ -58,7 +58,7 @@ if st.session_state.page == 'home':
         col1, col2, col3 = st.columns(3)
     
         with col1:
-            latitude = st.number_input(
+            st.session_state.latitude = st.number_input(
                 "Latitude (decimal degrees)",
                 min_value=-90.0,
                 max_value=90.0,
@@ -68,7 +68,7 @@ if st.session_state.page == 'home':
             )
     
         with col2:
-            longitude = st.number_input(
+            st.session_state.longitude = st.number_input(
                 "Longitude (decimal degrees)",
                 min_value=-180.0,
                 max_value=180.0,
@@ -78,7 +78,7 @@ if st.session_state.page == 'home':
             )
     
         with col3:
-            altitude = st.number_input(
+            st.session_state.altitude = st.number_input(
                 "Altitude (meters above sea level)",
                 min_value=0.0,  # Dead Sea is about -430m
                 max_value=9000.0,  # Mount Everest is about 8848m
@@ -92,14 +92,14 @@ if st.session_state.page == 'home':
         # Soil type and plant type in the same row
         col4, col5 = st.columns(2)
         with col4:
-            soil_type = st.selectbox(
+            st.session_state.soil_type = st.selectbox(
                 "Soil Type",
                 ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
                  'silty clay loams', 'silty clay', 'clay']
             )
     
         with col5:
-            plant_type = st.selectbox(
+            st.session_state.plant_type = st.selectbox(
                 "Plant Type",
                 ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
             )
@@ -109,6 +109,14 @@ if st.session_state.page == 'home':
 
 
         def on_submit_clicked():
+            latitude = st.session_state.latitude
+            longitude = st.session_state.longitude
+            altitude = st.session_state.altitude
+            soil_type = st.session_state.soil_type
+            plant_type = st.session_state.plant_type
+            method = st.session_state.method
+
+
             st.success("Form submitted successfully!")
         
             # Display the input values (for demonstration)
