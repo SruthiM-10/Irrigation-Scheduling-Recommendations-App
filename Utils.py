@@ -23,7 +23,7 @@ def load_related_data(user_data):
   if len(closest_rows) == 1:
     return closest_rows
 
-  if len(closet_rows) == 0:
+  if len(closest_rows) == 0:
     return -1
   return closest_rows.iloc[0]
   
