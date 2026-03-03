@@ -64,7 +64,7 @@ if st.session_state.page == 'home':
                 min_value=-90.0,
                 max_value=90.0,
                 value=0.0,
-                step=1,
+                step=1.0,
                 format="%.6f",
                 key='latitude'
             )
@@ -75,7 +75,7 @@ if st.session_state.page == 'home':
                 min_value=-180.0,
                 max_value=180.0,
                 value=0.0,
-                step=1,
+                step=1.0,
                 format="%.6f",
                 key='longitude'
             )
@@ -86,7 +86,7 @@ if st.session_state.page == 'home':
                 min_value=0.0,  # Dead Sea is about -430m
                 max_value=9000.0,  # Mount Everest is about 8848m
                 value=0.0,
-                step=1,
+                step=1.0,
                 format="%.1f",
                 key='altitude'
             )
@@ -100,7 +100,7 @@ if st.session_state.page == 'home':
                 "Soil Type",
                 ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
                  'silty clay loams', 'silty clay', 'clay'],
-                key="soil_type",
+                key="soil_type"
             )
     
         with col5:
