@@ -59,33 +59,36 @@ if st.session_state.page == 'home':
         col1, col2, col3 = st.columns(3)
     
         with col1:
-            st.session_state.latitude = st.number_input(
+            st.number_input(
                 "Latitude (decimal degrees)",
                 min_value=-90.0,
                 max_value=90.0,
                 value=0.0,
-                step=0.000001,
-                format="%.6f"
+                step=1,
+                format="%.6f",
+                key='latitude'
             )
     
         with col2:
-            st.session_state.longitude = st.number_input(
+            st.number_input(
                 "Longitude (decimal degrees)",
                 min_value=-180.0,
                 max_value=180.0,
                 value=0.0,
-                step=0.000001,
-                format="%.6f"
+                step=1,
+                format="%.6f",
+                key='longitude'
             )
     
         with col3:
-            st.session_state.altitude = st.number_input(
+            st.number_input(
                 "Altitude (meters above sea level)",
                 min_value=0.0,  # Dead Sea is about -430m
                 max_value=9000.0,  # Mount Everest is about 8848m
                 value=0.0,
-                step=0.1,
-                format="%.1f"
+                step=1,
+                format="%.1f",
+                key='altitude'
             )
     
         st.markdown("### Crop Information")
@@ -93,20 +96,23 @@ if st.session_state.page == 'home':
         # Soil type and plant type in the same row
         col4, col5 = st.columns(2)
         with col4:
-            st.session_state.soil_type = st.selectbox(
+            st.selectbox(
                 "Soil Type",
                 ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
-                 'silty clay loams', 'silty clay', 'clay']
+                 'silty clay loams', 'silty clay', 'clay'],
+                key="soil_type",
             )
     
         with col5:
-            st.session_state.plant_type = st.selectbox(
+            st.selectbox(
                 "Plant Type",
-                ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
+                ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"],
+                key="plant_type"
             )
     
-        st.session_state.model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
-                                                "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
+        st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
+                                                "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"], 
+                    key="model_type")
 
         def go_to_results():
             st.session_state.page = 'results'
