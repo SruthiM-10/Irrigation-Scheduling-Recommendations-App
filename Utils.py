@@ -8,7 +8,7 @@ def load_model(model_type: str):
   return model
 
 def load_related_data(user_data, method):
-  dataset = pd.read_csv("final_dataset_updated_doi.csv")
+  dataset = pd.read_csv("final_dataset_updated_doi.csv").drop("Unnamed: 0", axis=1)
   dataset = dataset[dataset['irrigation_scheduling_method_standardized'] == method]
 
   dataset['distance'] = (dataset['latitude_decimal_degrees'] - user_data.loc[0, 'latitude_decimal_degrees'])**2 + \
