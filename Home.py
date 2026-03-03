@@ -10,7 +10,7 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 from collections import defaultdict
-from Utils import load_model
+from Utils import load_model, load_related_data
 
 st.set_page_config(
     page_title="Irrigation Method Recommendation",
@@ -169,6 +169,8 @@ elif st.session_state.page == 'results':
     """)
 
     st.markdown(f"#### Related Research Papers and Configurations for {best_two_options[0]}")
+    related_rows = load_related_data(user_dict)
+    st.dataframe(related_rows)
     st.markdown(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling")
     st.markdown("#### Estimated Cost Range")
     
