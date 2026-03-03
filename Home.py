@@ -15,7 +15,7 @@ from Utils import load_model
 if 'page' not in st.session_state:
     st.session_state.page = 'home'
 
-if st.session.state.page == 'home':
+if st.session_state.page == 'home':
     CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
     NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
     METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
