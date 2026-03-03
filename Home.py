@@ -146,7 +146,7 @@ if st.session_state.page == 'home':
         st.session_state.best_two_options = best_two_options
         st.session_state.page = 'results'
 
-if st.session_state.page == 'results':
+elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
     
