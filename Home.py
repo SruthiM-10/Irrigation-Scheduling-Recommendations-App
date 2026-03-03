@@ -12,6 +12,12 @@ import pandas as pd
 from collections import defaultdict
 from Utils import load_model
 
+st.set_page_config(
+    page_title="Irrigation Method Recommendation",
+    page_icon="💧",
+    layout="centered"
+)
+
 if 'page' not in st.session_state:
     st.session_state.page = 'home'
 
@@ -21,12 +27,6 @@ if st.session_state.page == 'home':
     METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
                     , "Specialized Irrigation Delivery"]
     METHOD_LABEL.sort()
-    
-    st.set_page_config(
-        page_title="Irrigation Method Recommendation",
-        page_icon="💧",
-        layout="centered"
-    )
     
     st.markdown("""
     <style>
