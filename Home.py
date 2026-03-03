@@ -12,134 +12,146 @@ import pandas as pd
 from collections import defaultdict
 from Utils import load_model
 
-CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
-NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
-METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
-                , "Specialized Irrigation Delivery"]
-METHOD_LABEL.sort()
+if 'page' not in st.session_state:
+    st.session_state.page = 'home'
 
-st.set_page_config(
-    page_title="Irrigation Method Recommendation",
-    page_icon="💧",
-    layout="centered"
-)
-
-st.markdown("""
-<style>
-    .stTextInput>div>div>input, .stNumberInput>div>div>input, .stSelectbox>div>div>div {
-        border: 2px solid #2e8b57;
-        border-radius: 5px;
-    }
-    .stButton>button {
-        background-color: #2e8b57;
-        color: white;
-        font-weight: bold;
-        width: 100%;
-        padding: 0.5rem;
-        border-radius: 5px;
-    }
-    .stButton>button:hover {
-        background-color: #3c763d;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-# Page title
-st.markdown("<h1 style='text-align: center; color: #2e8b57;'>🌱 Irrigation Method Recommendation</h1>", unsafe_allow_html=True)
-
-with st.form("irrigation_form"):
-    st.markdown("### Location Information")
-
-    # Create two columns for better layout
-    col1, col2, col3 = st.columns(3)
-
-    with col1:
-        latitude = st.number_input(
-            "Latitude (decimal degrees)",
-            min_value=-90.0,
-            max_value=90.0,
-            value=0.0,
-            step=0.000001,
-            format="%.6f"
-        )
-
-    with col2:
-        longitude = st.number_input(
-            "Longitude (decimal degrees)",
-            min_value=-180.0,
-            max_value=180.0,
-            value=0.0,
-            step=0.000001,
-            format="%.6f"
-        )
-
-    with col3:
-        altitude = st.number_input(
-            "Altitude (meters above sea level)",
-            min_value=0.0,  # Dead Sea is about -430m
-            max_value=9000.0,  # Mount Everest is about 8848m
-            value=0.0,
-            step=0.1,
-            format="%.1f"
-        )
-
-    st.markdown("### Crop Information")
-
-    # Soil type and plant type in the same row
-    col4, col5 = st.columns(2)
-    with col4:
-        soil_type = st.selectbox(
-            "Soil Type",
-            ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
-             'silty clay loams', 'silty clay', 'clay']
-        )
-
-    with col5:
-        plant_type = st.selectbox(
-            "Plant Type",
-            ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
-        )
-
-    model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
-                                            "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
+if st.session.state.page == 'home':
+    CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
+    NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
+    METHOD_LABEL = ["Conventional/Fixed Scheduling", "Deficit/Partial Irrigation", "Evapotranspiration-Based", "Soil Moisture-Based", "Plant or Climate-Based"
+                    , "Specialized Irrigation Delivery"]
+    METHOD_LABEL.sort()
     
-    submit_button = st.form_submit_button("Get Irrigation Recommendation")
-if submit_button:
-    st.success("Form submitted successfully!")
-
-    # Display the input values (for demonstration)
-    with st.expander("View Input Parameters"):
-        st.write(f"- Latitude: {latitude}°")
-        st.write(f"- Longitude: {longitude}°")
-        st.write(f"- Altitude: {altitude} meters")
-        st.write(f"- Soil Type: {soil_type}")
-        st.write(f"- Plant Type: {plant_type}")
-
-    user_input = defaultdict(list)
-    for method in METHOD_LABEL:
-        user_input[CAT_COLUMNS[0]].append(plant_type)
-        user_input[CAT_COLUMNS[1]].append(method)
-        user_input[CAT_COLUMNS[2]].append(soil_type)
-        user_input[NUMERIC_COLUMNS[0]].append(latitude)
-        user_input[NUMERIC_COLUMNS[1]].append(longitude)
-        user_input[NUMERIC_COLUMNS[2]].append(altitude)
-
-    user_dict = pd.DataFrame(user_input)
-
-    if model_type == "XGBoost_Model (Recommended)":
-        model_type = "XGBoost_Model"
-    model = load_model(model_type)
-    predictions = model.predict(user_dict)
-
-    irrigation_method_yield = dict(
-        zip(METHOD_LABEL, predictions)
+    st.set_page_config(
+        page_title="Irrigation Method Recommendation",
+        page_icon="💧",
+        layout="centered"
     )
+    
+    st.markdown("""
+    <style>
+        .stTextInput>div>div>input, .stNumberInput>div>div>input, .stSelectbox>div>div>div {
+            border: 2px solid #2e8b57;
+            border-radius: 5px;
+        }
+        .stButton>button {
+            background-color: #2e8b57;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+        .stButton>button:hover {
+            background-color: #3c763d;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Page title
+    st.markdown("<h1 style='text-align: center; color: #2e8b57;'>🌱 Irrigation Method Recommendation</h1>", unsafe_allow_html=True)
+    
+    with st.form("irrigation_form"):
+        st.markdown("### Location Information")
+    
+        # Create two columns for better layout
+        col1, col2, col3 = st.columns(3)
+    
+        with col1:
+            latitude = st.number_input(
+                "Latitude (decimal degrees)",
+                min_value=-90.0,
+                max_value=90.0,
+                value=0.0,
+                step=0.000001,
+                format="%.6f"
+            )
+    
+        with col2:
+            longitude = st.number_input(
+                "Longitude (decimal degrees)",
+                min_value=-180.0,
+                max_value=180.0,
+                value=0.0,
+                step=0.000001,
+                format="%.6f"
+            )
+    
+        with col3:
+            altitude = st.number_input(
+                "Altitude (meters above sea level)",
+                min_value=0.0,  # Dead Sea is about -430m
+                max_value=9000.0,  # Mount Everest is about 8848m
+                value=0.0,
+                step=0.1,
+                format="%.1f"
+            )
+    
+        st.markdown("### Crop Information")
+    
+        # Soil type and plant type in the same row
+        col4, col5 = st.columns(2)
+        with col4:
+            soil_type = st.selectbox(
+                "Soil Type",
+                ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
+                 'silty clay loams', 'silty clay', 'clay']
+            )
+    
+        with col5:
+            plant_type = st.selectbox(
+                "Plant Type",
+                ["Wheat", "Maize", "Soybean", "Legumes_Grains", "Vegetables", "Hay", "Fibers_Oilseeds", "Perennials", "Root_Tubers", "Vines"]
+            )
+    
+        model_type = st.selectbox("Model Type (Sorted by accuracy (highest to lowest))", ["XGBoost_Model (Recommended)", "GradientBoosting", "RandomForest", "ExtraTrees",
+                                                "DecisionTree", "KNN", "MLP", "AdaBoost", "Ridge", "Lasso", "SVR"])
+        
+        submit_button = st.form_submit_button("Get Irrigation Recommendation")
+    if submit_button:
+        st.success("Form submitted successfully!")
+    
+        # Display the input values (for demonstration)
+        with st.expander("View Input Parameters"):
+            st.write(f"- Latitude: {latitude}°")
+            st.write(f"- Longitude: {longitude}°")
+            st.write(f"- Altitude: {altitude} meters")
+            st.write(f"- Soil Type: {soil_type}")
+            st.write(f"- Plant Type: {plant_type}")
+    
+        user_input = defaultdict(list)
+        for method in METHOD_LABEL:
+            user_input[CAT_COLUMNS[0]].append(plant_type)
+            user_input[CAT_COLUMNS[1]].append(method)
+            user_input[CAT_COLUMNS[2]].append(soil_type)
+            user_input[NUMERIC_COLUMNS[0]].append(latitude)
+            user_input[NUMERIC_COLUMNS[1]].append(longitude)
+            user_input[NUMERIC_COLUMNS[2]].append(altitude)
+    
+        user_dict = pd.DataFrame(user_input)
+    
+        if model_type == "XGBoost_Model (Recommended)":
+            model_type = "XGBoost_Model"
+        model = load_model(model_type)
+        predictions = model.predict(user_dict)
+    
+        irrigation_method_yield = dict(
+            zip(METHOD_LABEL, predictions)
+        )
+    
+        # sort the dictionary based on the yield
+        sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
+        # select the best first two options
+        best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
+        st.session_state.best_two_options = best_two_options
+        st.session_state.page = 'results'
 
-    # sort the dictionary based on the yield
-    sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
-    # select the best first two options
-    best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
-
+elif st.session_state.page == 'results':
+    if st.button("Back"):
+        st.session_state.page = 'home'
+    
+    best_two_options = st.session_state.best_two_options
+    
     st.markdown("### 🌟 Recommended Irrigation Method")
     st.info(f"""
     **The best irrigation method for your location is {best_two_options[0]}**.
