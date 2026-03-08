@@ -131,7 +131,7 @@ if st.session_state.page == 'home':
             st.markdown("""
                 <div style="display: flex; align-items: center; margin-bottom: 3px;">
                     <span style="font-size: 14px; margin-right: 5px">Altitude (meters above sea level)</span>
-                    <a href="mapdevelopers.com/elevation_calculator.php" 
+                    <a href="https://www.mapdevelopers.com/elevation_calculator.php" 
                        target="_blank" 
                        title="View Altitude" 
                        style="text-decoration: none; color: #2e8b57; cursor: pointer">
