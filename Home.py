@@ -200,7 +200,7 @@ elif st.session_state.page == 'results':
 
     st.markdown(f"### 🌟 2nd Best Irrigation Method - {best_two_options[1]}")
 
-    with st.expander(f"#### What is {best_two_options[1]?"):
+    with st.expander(f"#### What is {best_two_options[1]}?"):
         pass
 
     with st.expander(f"#### Helpful Links to Setup {best_two_options[1]} Irrigation Scheduling"):
