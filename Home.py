@@ -19,15 +19,28 @@ st.set_page_config(
 )
 st.markdown("""
     <style>
-    /* Target the expander header */
-    .st-emotion-cache-p4mowd {
+    /* Target the header container of the expander */
+    .stExpander details summary {
         background-color: #e3f2fd; /* Light Blue */
         border-radius: 5px;
+        padding: 10px;
+        transition: background-color 0.3s;
     }
-    /* Target the text inside to ensure it looks good */
-    .st-emotion-cache-p4mowd p {
+
+    /* Change background color when hovering */
+    .stExpander details summary:hover {
+        background-color: #bbdefb; /* Slightly darker blue on hover */
+    }
+
+    /* Target the text inside the expander header */
+    .stExpander details summary p {
+        color: #0d47a1 !important; /* Dark Blue text */
         font-weight: bold;
-        color: #0d47a1; /* Darker Blue text */
+    }
+    
+    /* Optional: Change the color of the expander arrow */
+    .stExpander details summary svg {
+        fill: #0d47a1;
     }
     </style>
     """, unsafe_allow_html=True)
