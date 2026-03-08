@@ -93,6 +93,18 @@ if st.session_state.page == 'home':
     
         # Create two columns for better layout
         col1, col2, col3 = st.columns(3)
+
+        st.markdown("""
+        <div style="display: flex; align-items: left; margin-bottom: 3px;">
+            <span style="font-size: 14px; margin-right: 5px">Soil Type</span>
+            <a href="https://www.latlong.net/" 
+               target="_blank" 
+               title="Find your Lat/lon from your address" 
+               style="text-decoration: none; color: #2e8b57; cursor: pointer">
+               ⓘ
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
     
         with col1:
             st.number_input(
