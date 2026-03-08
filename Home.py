@@ -10,7 +10,7 @@ Original file is located at
 import streamlit as st
 import pandas as pd
 from collections import defaultdict
-from Utils import load_model, load_related_data
+from Utils import load_model, load_related_data, get_info
 
 st.set_page_config(
     page_title="Irrigation Method Recommendation",
@@ -215,12 +215,14 @@ elif st.session_state.page == 'results':
         best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
         
         st.markdown(f"### 🌟 Recommended Irrigation Method - {best_two_options[0]}")
+
+        summary, resources = get_info(best_two_options[0])
     
         with st.expander(f"**What is {best_two_options[0]} Irrigation Scheduling?**"):
-            pass
+            st.info(summary)
     
         with st.expander(f"**Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling**"):
-            pass
+            st.info(resources)
             
         with st.expander(f"**Most Related Research Paper in Dataset:**"):
             most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
@@ -243,11 +245,13 @@ elif st.session_state.page == 'results':
     
         st.markdown(f"### 🌟 2nd Best Irrigation Method - {best_two_options[1]}")
     
-        with st.expander(f"**What is {best_two_options[1]} Irrigation Scheduling?**"):
-            pass
+        summary, resources = get_info(best_two_options[0])
     
-        with st.expander(f"**Helpful Links to Setup {best_two_options[1]} Irrigation Scheduling**"):
-            pass
+        with st.expander(f"**What is {best_two_options[0]} Irrigation Scheduling?**"):
+            st.info(summary)
+    
+        with st.expander(f"**Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling**"):
+            st.info(resources)
             
         with st.expander(f"**Most Related Research Paper in Dataset:**"):
             most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[1])
