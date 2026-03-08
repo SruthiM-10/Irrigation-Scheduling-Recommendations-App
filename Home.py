@@ -128,6 +128,17 @@ if st.session_state.page == 'home':
             )
     
         with col3:
+            st.markdown("""
+                <div style="display: flex; align-items: center; margin-bottom: 3px;">
+                    <span style="font-size: 14px; margin-right: 5px">Altitude (meters above sea level)</span>
+                    <a href="mapdevelopers.com/elevation_calculator.php" 
+                       target="_blank" 
+                       title="View Altitude" 
+                       style="text-decoration: none; color: #2e8b57; cursor: pointer">
+                       ⓘ
+                    </a>
+                </div>
+                """, unsafe_allow_html=True)
             st.number_input(
                 "Altitude (meters above sea level)",
                 min_value=0.0,  # Dead Sea is about -430m
@@ -135,7 +146,8 @@ if st.session_state.page == 'home':
                 value=0.0,
                 step=1.0,
                 format="%.1f",
-                key='altitude'
+                key='altitude',
+                label_visibility="collapsed"
             )
     
         st.markdown("### Crop Information")
