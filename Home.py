@@ -17,30 +17,31 @@ st.set_page_config(
     page_icon="💧",
     layout="centered"
 )
-st.markdown("""
-    <style>
-    .stExpander details summary {
-        background-color: #e8f5e9;
-        border-radius: 5px;
-        padding: 10px;
-        border: 1px solid #c8e6c9;
-    }
 
-    .stExpander details summary:hover {
-        background-color: #c8e6c9;
-    }
+st.markdown(
+     f"""
+     <style>
+     .stApp {{
+         background-image: url("https://pngtree.com/freebackground/center-pivot-irrigation-in-a-field-at-sunset-light_19223197.html");
+         background-attachment: fixed;
+         background-size: cover;
+     }}
 
-    .stExpander details summary p {
-        color: #2e7d32 !important;
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
-    
-    .stExpander details summary svg {
-        fill: #2e7d32;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+     /* Optional: Adds a dark/light overlay to make text more readable */
+     .stApp::before {{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.6); /* Adjust opacity here */
+        z-index: -1;
+     }}
+     </style>
+     """,
+     unsafe_allow_html=True
+ )
 
 CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
 NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
