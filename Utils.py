@@ -25,5 +25,14 @@ def load_related_data(user_data, method):
 
   if len(closest_rows) == 0:
     return -1
+
+  closest_row = closest_rows.iloc[0]
+  link = closest_row["doi_url"]
+  summary, setup_params, method_params = get_conditions(closest_row.index)
+  
   return closest_rows.iloc[0]
+
+def get_conditions(index):
+  dataset = pd.read_csv("experimental_conditions.csv")
+  return dataset.loc[index, "summary"], dataset.loc[index, "experimental_setup_params"], dataset.loc[index, "irrigation_method_params"]
   
