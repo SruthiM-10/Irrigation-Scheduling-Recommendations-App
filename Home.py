@@ -28,13 +28,17 @@ st.markdown(
         background-size: cover;
     }}
 
-    div.element-container:has(#results-anchor), 
-    div.stVerticalBlock:has(#results-anchor) {{
+    .element-container:has(#results-anchor) {{
+        background-color: transparent !important;
+    }}
+
+    div[data-testid="stVerticalBlock"]:has(> div #results-anchor) {{
         background-color: white !important;
         padding: 40px !important;
         border-radius: 15px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
         margin-top: 20px !important;
+        border: 1px solid #eee !important;
     }}
     
     [data-testid="stForm"] {{
