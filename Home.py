@@ -17,6 +17,20 @@ st.set_page_config(
     page_icon="💧",
     layout="centered"
 )
+st.markdown("""
+    <style>
+    /* Target the expander header */
+    .st-emotion-cache-p4mowd {
+        background-color: #e3f2fd; /* Light Blue */
+        border-radius: 5px;
+    }
+    /* Target the text inside to ensure it looks good */
+    .st-emotion-cache-p4mowd p {
+        font-weight: bold;
+        color: #0d47a1; /* Darker Blue text */
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
 NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
