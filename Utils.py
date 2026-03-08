@@ -30,4 +30,36 @@ def load_related_data(user_data, method):
 def get_conditions(index):
   dataset = pd.read_csv("experimental_conditions.csv")
   return dataset.loc[index, "summary"], dataset.loc[index, "experimental_setup_params"], dataset.loc[index, "irrigation_method_params"]
+
+def get_info(method):
+  summary = ""
+  resources = ""
+  if method == "Soil Moisture-Based":
+    summary = """
+**Overview:** Soil moisture-based scheduling is a "demand-side" approach. Instead of guessing based on weather forecasts, you use sensors to measure the actual water content within the plant’s root zone. It’s like checking your car's fuel gauge rather than assuming you need gas every 300 miles.
+
+**How it Works:**
+* **Measurement:** Sensors (Tensiometers or Capacitance probes) are placed at multiple depths to monitor the active root zone.
+* **Thresholds:** You define **Field Capacity** (full) and **Management Allowable Depletion** (the trigger point for watering).
+* **Action:** Irrigation is only applied when soil moisture hits the trigger point, ensuring the plant never reaches the wilting point while preventing over-saturation.
+
+**Core Benefits:**
+* **Water Efficiency:** Often reduces water consumption by **20–50%**.
+* **Disease Prevention:** Reduces root rot and fungal issues caused by over-watering.
+* **Nutrient Retention:** Prevents "leaching," where excess water washes expensive fertilizers away from the roots."""
+
+  resources = """
+  #### **Technical Manuals**
+* [USDA NRCS: Irrigation Water Management](https://www.nrcs.usda.gov/resources/guides-and-instructions/irrigation-water-management-plan) - National standards for moisture-monitoring plans.
+* [UCANR: Soil Moisture Monitoring Guide](https://ucanr.edu/sites/irrigation/Irrigation_Scheduling/Soil_Moisture_Monitoring/) - A deep dive into sensor types and data interpretation.
+
+#### **Practical Tools**
+* [USDA Soil Texture Triangle](https://www.nrcs.usda.gov/sites/default/files/2022-09/The-Soil-Texture-Triangle.pdf) - Essential for understanding your soil's water-holding capacity.
+* [MSU Extension: Sensor Setup Guide](https://www.canr.msu.edu/news/using-soil-moisture-sensors-for-irrigation-scheduling) - A beginner-friendly guide to installing your first sensor array.
+
+#### **Scientific Standards**
+* [FAO Crop Evapotranspiration (Paper 56)](https://www.fao.org/3/x0490e/x0490e00.htm) - The global gold standard for soil-water-crop relationships.
+  """
+
+  return summary, resources
   
