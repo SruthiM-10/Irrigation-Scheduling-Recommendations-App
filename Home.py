@@ -151,7 +151,7 @@ elif st.session_state.page == 'results':
         st.session_state.page = 'home'
         st.rerun()
         
-    with st.container(border=True)
+    with st.container(border=True):
         latitude = st.session_state.latitude
         longitude = st.session_state.longitude
         altitude = st.session_state.altitude
