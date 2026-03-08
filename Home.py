@@ -15,7 +15,7 @@ from Utils import load_model, load_related_data, get_info
 st.set_page_config(
     page_title="Irrigation Method Recommendation",
     page_icon="💧",
-    layout="wide"
+    layout="centered"
 )
 
 st.markdown(
