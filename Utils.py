@@ -24,7 +24,7 @@ def load_related_data(user_data, method):
 
   closest_row = closest_rows.iloc[0]
   link = closest_row["doi_url"]
-  summary, setup_params, method_params = get_conditions(closest_row.index)  
+  summary, setup_params, method_params = get_conditions(closest_row.name)  
   return closest_row, link, summary, setup_params, method_params
 
 def get_conditions(index):
