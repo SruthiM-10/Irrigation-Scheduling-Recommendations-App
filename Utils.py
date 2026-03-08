@@ -11,13 +11,13 @@ def load_related_data(user_data, method):
   dataset = pd.read_csv("final_dataset_updated_doi.csv").drop("Unnamed: 0", axis=1)
   dataset = dataset[dataset['irrigation_scheduling_method_standardized'] == method]
 
-  dataset['distance'] = (dataset['latitude_decimal_degrees'] - user_data.loc[0, 'latitude_decimal_degrees'])**2 + \
-                        (dataset['longitude_decimal_degrees'] - user_data.loc[0, 'longitude_decimal_degrees'])**2
-  min_distance = dataset['distance'].min()
-  closest_rows = dataset[dataset['distance'] == min_distance]
+  closest_rows = closest_rows[closest_rows['plant_type_standardized_to_10'] == user_data.loc[0, 'plant_type_standardized_to_10']]
 
   if len(closest_rows) > 1:
-    closest_rows = closest_rows[closest_rows['plant_type_standardized_to_10'] == user_data.loc[0, 'plant_type_standardized_to_10']]
+      dataset['distance'] = (dataset['latitude_decimal_degrees'] - user_data.loc[0, 'latitude_decimal_degrees'])**2 + \
+                        (dataset['longitude_decimal_degrees'] - user_data.loc[0, 'longitude_decimal_degrees'])**2
+      min_distance = dataset['distance'].min()
+      closest_rows = dataset[dataset['distance'] == min_distance]
 
   if len(closest_rows) == 0:
     return -1, -1, -1, -1, -1
