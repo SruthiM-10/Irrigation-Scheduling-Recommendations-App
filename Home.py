@@ -23,7 +23,7 @@ st.markdown(
     <style>
     /* The main container */
     .stApp {{
-        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6)), 
+        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.3)), 
                     url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
         background-attachment: fixed;
         background-size: cover;
