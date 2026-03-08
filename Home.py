@@ -147,18 +147,18 @@ elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
         st.rerun()
-
-    st.markdown("""
-        <div style="
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            color: #333;
-            margin-bottom: 20px;
-        ">
-    """, unsafe_allow_html=True)
-    with st.container(border=True):
+    else: 
+        st.markdown("""
+            <div style="
+                background-color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                color: #333;
+                margin-bottom: 20px;
+            ">
+        """, unsafe_allow_html=True)
+        
         latitude = st.session_state.latitude
         longitude = st.session_state.longitude
         altitude = st.session_state.altitude
