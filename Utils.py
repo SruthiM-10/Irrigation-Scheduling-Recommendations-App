@@ -36,25 +36,25 @@ def get_info(method):
   resources = ""
   if method == "Soil Moisture-Based":
     summary = """
-**Overview:** Soil moisture-based scheduling is a "demand-side" approach. Instead of guessing based on weather forecasts, you use sensors to measure the actual water content within the plant’s root zone. It’s like checking your car's fuel gauge rather than assuming you need gas every 300 miles.
-
-**How it Works:**
-* **Measurement:** Sensors (Tensiometers or Capacitance probes) are placed at multiple depths to monitor the active root zone.
-* **Thresholds:** You define **Field Capacity** (full) and **Management Allowable Depletion** (the trigger point for watering).
-* **Action:** Irrigation is only applied when soil moisture hits the trigger point, ensuring the plant never reaches the wilting point while preventing over-saturation.
-
-**Core Benefits:**
-* **Water Efficiency:** Often reduces water consumption by **20–50%**.
-* **Disease Prevention:** Reduces root rot and fungal issues caused by over-watering.
-* **Nutrient Retention:** Prevents "leaching," where excess water washes expensive fertilizers away from the roots."""
-
-  resources = """
-  #### **Technical Manuals**
-* [USDA NRCS: Irrigation Water Management](https://www.nrcs.usda.gov/sites/default/files/2022-09/Irrigation_Water_Management_449_CPS_9_2020.pdf) - National standards for moisture-monitoring plans.
-* [UCANR: Soil Moisture Monitoring Guide](https://ucanr.edu/sites/default/files/2010-07/20513.pdf) - A deep dive into sensor types and data interpretation.
-* [MSU Extension: Sensor Setup Guide](https://extension.msstate.edu/publications/irrometer-watermark-series-installation-procedures) - A beginner-friendly guide to installing your first sensor array.
-  """
-elif method == "Evapotranspiration-Based":
+    **Overview:** Soil moisture-based scheduling is a "demand-side" approach. Instead of guessing based on weather forecasts, you use sensors to measure the actual water content within the plant’s root zone. It’s like checking your car's fuel gauge rather than assuming you need gas every 300 miles.
+    
+    **How it Works:**
+    * **Measurement:** Sensors (Tensiometers or Capacitance probes) are placed at multiple depths to monitor the active root zone.
+    * **Thresholds:** You define **Field Capacity** (full) and **Management Allowable Depletion** (the trigger point for watering).
+    * **Action:** Irrigation is only applied when soil moisture hits the trigger point, ensuring the plant never reaches the wilting point while preventing over-saturation.
+    
+    **Core Benefits:**
+    * **Water Efficiency:** Often reduces water consumption by **20–50%**.
+    * **Disease Prevention:** Reduces root rot and fungal issues caused by over-watering.
+    * **Nutrient Retention:** Prevents "leaching," where excess water washes expensive fertilizers away from the roots."""
+    
+      resources = """
+      #### **Technical Manuals**
+    * [USDA NRCS: Irrigation Water Management](https://www.nrcs.usda.gov/sites/default/files/2022-09/Irrigation_Water_Management_449_CPS_9_2020.pdf) - National standards for moisture-monitoring plans.
+    * [UCANR: Soil Moisture Monitoring Guide](https://ucanr.edu/sites/default/files/2010-07/20513.pdf) - A deep dive into sensor types and data interpretation.
+    * [MSU Extension: Sensor Setup Guide](https://extension.msstate.edu/publications/irrometer-watermark-series-installation-procedures) - A beginner-friendly guide to installing your first sensor array.
+      """
+  elif method == "Evapotranspiration-Based":
   summary = """
 **Overview:** Evapotranspiration-based (ET) scheduling is a "supply-side" approach often called the **Checkbook Method**. It calculates how much water is "spent" by the crop and the sun each day and "deposits" that exact amount back into the soil via irrigation.
 
@@ -81,7 +81,7 @@ elif method == "Evapotranspiration-Based":
 * [Water Balance Irrigation Scheduling in Florida](https://ufdc.ufl.edu/IR00001504/00001/pdf) - Outlines how crop water requirements are used in this scheduling method
 """
 
-elif method == "Deficit/Partial Irrigation":
+  elif method == "Deficit/Partial Irrigation":
   summary = """
 **Overview:** Deficit Irrigation (DI) is a sophisticated water-management strategy where the crop is intentionally exposed to a controlled level of water stress. Instead of aiming for maximum water input, you aim for maximum **Water Use Efficiency (WUE)** and crop quality.
 
@@ -102,7 +102,7 @@ elif method == "Deficit/Partial Irrigation":
 * [Texas A&M: Irrigation Timing During Drought](https://texaslocalproduce.tamu.edu/files/2023/08/EBN-015.-Irrigation-Timing-During-Drought.-Corn-Cotton-and-Sorghum-Furrow-Systems.pdf) - Practical tables for managing drought stress.
 """
 
-elif method == "Conventional/Fixed Scheduling":
+  elif method == "Conventional/Fixed Scheduling":
   summary = """
 **Overview:** Conventional (or Fixed-Interval) irrigation is the traditional approach where water is applied based on a set schedule—such as every Tuesday and Friday—regardless of daily weather changes or specific plant needs.
 
@@ -144,8 +144,8 @@ elif method == "Conventional/Fixed Scheduling":
 * [UC Davis: CropManage Tool](https://cropmanage.ucanr.edu/) - A free online decision-support tool for model-based scheduling.
 """
 
-    elif method == "Specialized Irrigation Delivery":
-        summary = """
+  elif method == "Specialized Irrigation Delivery":
+      summary = """
 **Overview:** This method focuses on **How** the water is delivered, prioritizing high-efficiency systems like **Drip, Sub-surface, or Micro-sprinklers**. It moves away from "flooding" the field and toward "feeding" the plant precisely at the base.
 
 **How it Works:**
@@ -158,7 +158,7 @@ elif method == "Conventional/Fixed Scheduling":
 * **Weed Control:** Since the soil surface stays dry, weed seeds between rows never germinate.
 * **Fertigation:** Allows you to mix fertilizer directly into the water (Fertigation), feeding the plant exactly what it needs, when it needs it."""
 
-        resources = """
+      resources = """
 #### **Technical Manuals**
 * [USDA NRCS: Microirrigation Guide](https://www.nrcs.usda.gov/sites/default/files/2022-09/Irrigation_System_Microirrigation_441_NHCP_CPS_2020.pdf) - Detailed engineering for drip and micro-delivery.
 * [Netafim: Drip Irrigation 101](https://www.netafim.com/globalassets/local/uae/irrigating-the-future-pdfs/drip-irrigation---understanding-the-basics.pdf) - A practical look at the components needed for specialized delivery.
