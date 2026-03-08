@@ -34,22 +34,6 @@ st.markdown(
         padding: 30px !important;
         border-radius: 15px !important;
     }}
-
-    div[data-testid="stVerticalBlock"]:has(> div[style*="border"]) ,
-    .stElementContainer:has(div[style*="border"]),
-    div[style*="border-bottom-style"][style*="border-top-style"] {{
-        background-color: white !important;
-        padding: 30px !important;
-        border-radius: 15px !important;
-        color: black !important;
-    }}
-
-    [data-testid="stVerticalBlockBorderWrapper"] > div {{
-        background-color: white !important;
-        padding: 20px !important;
-        border-radius: 15px !important;
-    }}
-
     [data-testid="stAppViewContainer"] {{
         background-color: rgba(0,0,0,0); /* Make sure the container is transparent */
     }}
@@ -163,7 +147,17 @@ elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
         st.rerun()
-        
+
+    st.markdown("""
+        <div style="
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            color: #333;
+            margin-bottom: 20px;
+        ">
+    """, unsafe_allow_html=True)
     with st.container(border=True):
         latitude = st.session_state.latitude
         longitude = st.session_state.longitude
