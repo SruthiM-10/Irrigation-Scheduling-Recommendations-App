@@ -178,7 +178,7 @@ elif st.session_state.page == 'results':
     if isinstance(most_related_row, int):
         st.info("""No related data found""")
     else:
-        col1, col2, col3 = st.cols(3)
+        col1, col2, col3 = st.columns(3)
 
         with col1:
             with st.expander("Experiment Summary"):
