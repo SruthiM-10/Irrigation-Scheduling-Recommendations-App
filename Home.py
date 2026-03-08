@@ -145,7 +145,7 @@ if st.session_state.page == 'home':
                 """, 
                 unsafe_allow_html=True
             )
-            st.selectbox(
+            st.selectbox("",
                 ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
                  'silty clay loams', 'silty clay', 'clay'],
                 key="soil_type"
