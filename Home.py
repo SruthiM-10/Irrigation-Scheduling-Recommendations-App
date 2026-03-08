@@ -165,39 +165,68 @@ elif st.session_state.page == 'results':
     # select the best first two options
     best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
     
-    st.markdown("### 🌟 Recommended Irrigation Method")
-    st.info(f"""
-    **The best irrigation method for your location is {best_two_options[0]} for optimal water efficiency and crop yield.**.
-    
-    **The second best irrigation method for your location is {best_two_options[1]}**.
-    """)
+    st.markdown(f"### 🌟 Recommended Irrigation Method - {best_two_options[0]")
 
-    st.markdown(f"#### Most Related Research Paper {best_two_options[0]}: ")
-    # st.info(f"""{user_dict.loc[0, 'irrigation_scheduling_method_standardized']}""")
-    most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
-    if isinstance(most_related_row, int):
-        st.info("""No related data found""")
-    else:
-        st.info("""Source row from dataset""")
-        st.dataframe(most_related_row)
+    with st.expander(f"#### What is {best_two_options[0]?"):
+        pass
+
+    with st.expander(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling"):
+        pass
         
-        col1, col2 = st.columns(2)
-
-        with st.expander("More details about irrigation scheduling method"):
-            for key, value in eval(method_params).items():
-                st.write(f"* **{key}:** {value}")
-
-        with col1:
-            with st.expander("Experimental Setup (Paragraph)"):
-                st.info(conditions_summary)
-                
-        with col2:
-            with st.expander("Specific Details (Bullet-points)"):
-                for key, value in eval(setup_params).items():
-                    st.write(f"* **{key}:** {value}")
-
-        st.link_button("Click this to read more of this paper", link)
-                
-    st.markdown(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling")
-    st.markdown("#### Estimated Cost Range")
+    with st.expander(f"#### Most Related Research Paper in Dataset: "):
+        most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
+        if isinstance(most_related_row, int):
+            st.info("""No related data found""")
+        else:
+            st.info("""Source row from dataset""")
+            st.dataframe(most_related_row)
+            
+            col1, col2 = st.columns(2)
     
+            with st.expander("More details about irrigation scheduling method"):
+                for key, value in eval(method_params).items():
+                    st.write(f"* **{key}:** {value}")
+    
+            with col1:
+                with st.expander("Experimental Setup (Paragraph)"):
+                    st.info(conditions_summary)
+                    
+            with col2:
+                with st.expander("Specific Details (Bullet-points)"):
+                    for key, value in eval(setup_params).items():
+                        st.write(f"* **{key}:** {value}")
+    
+            st.link_button("Click this to read more of this paper", link)
+
+    st.markdown(f"### 🌟 2nd Best Irrigation Method - {best_two_options[1]}")
+
+    with st.expander(f"#### What is {best_two_options[1]?"):
+        pass
+
+    with st.expander(f"#### Helpful Links to Setup {best_two_options[1]} Irrigation Scheduling"):
+        pass
+        
+    with st.expander(f"#### Most Related Research Paper in Dataset: "):
+        most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[1])
+        if isinstance(most_related_row, int):
+            st.info("""No related data found""")
+        else:
+            st.info("""Source row from dataset""")
+            st.dataframe(most_related_row)
+            
+            col1, col2 = st.columns(2)
+    
+            with st.expander("More details about irrigation scheduling method"):
+                for key, value in eval(method_params).items():
+                    st.write(f"* **{key}:** {value}")
+    
+            with col1:
+                with st.expander("Experimental Setup (Paragraph)"):
+                    st.info(conditions_summary)
+                    
+            with col2:
+                with st.expander("Specific Details (Bullet-points)"):
+                    for key, value in eval(setup_params).items():
+                        st.write(f"* **{key}:** {value}")
+    
+            st.link_button("Click this to read more of this paper", link)
