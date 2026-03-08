@@ -165,7 +165,7 @@ elif st.session_state.page == 'results':
     # select the best first two options
     best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
     
-    st.markdown(f"### 🌟 Recommended Irrigation Method - {best_two_options[0]")
+    st.markdown(f"### 🌟 Recommended Irrigation Method - {best_two_options[0]}")
 
     with st.expander(f"#### What is {best_two_options[0]?"):
         pass
