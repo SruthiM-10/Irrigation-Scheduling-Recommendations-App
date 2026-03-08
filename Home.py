@@ -28,12 +28,13 @@ st.markdown(
         background-attachment: fixed;
         background-size: cover;
     }}
-
-    [data-testid="stForm"] {{
+    
+    [data-testid="stForm"], [data-testid="stVerticalBlockBorderWrapper"] {{
         background-color: white !important;
-        padding: 40px !important;
+        padding: 30px !important;
         border-radius: 15px !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+        margin-bottom: 20px !important;
     }}
 
     [data-testid="stAppViewContainer"] {{
@@ -149,7 +150,8 @@ elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
         st.rerun()
-    else:
+        
+    with st.container(border=True)
         latitude = st.session_state.latitude
         longitude = st.session_state.longitude
         altitude = st.session_state.altitude
