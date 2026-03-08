@@ -133,7 +133,7 @@ if st.session_state.page == 'home':
         col4, col5 = st.columns(2)
         with col4:
             st.markdown("""
-                <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                <div style="display: flex; align-items: center; margin-bottom: 3px;">
                     <span style="font-size: 14px; margin-right: 5px">Soil Type</span>
                     <a href="https://www.nano-yield.com/the-soil-texture-triangle" 
                        target="_blank" 
