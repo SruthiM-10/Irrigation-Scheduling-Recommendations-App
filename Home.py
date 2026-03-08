@@ -186,12 +186,12 @@ elif st.session_state.page == 'results':
                 
         with col2:
             with st.expander("More details about irrigation scheduling method"):
-                for key, value in method_params.items():
+                for key, value in eval(method_params).items():
                     st.write(f"* **{key}:** {value}")
         
         with col3:
             with st.expander("More details about experimental setup"):
-                for key, value in setup_params.items():
+                for key, value in eval(setup_params).items():
                     st.write(f"* **{key}:** {value}")
 
         st.info("""Source row from dataset""")
