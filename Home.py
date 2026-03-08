@@ -167,20 +167,37 @@ elif st.session_state.page == 'results':
     
     st.markdown("### 🌟 Recommended Irrigation Method")
     st.info(f"""
-    **The best irrigation method for your location is {best_two_options[0]}**.
+    **The best irrigation method for your location is {best_two_options[0]} for optimal water efficiency and crop yield.**.
+    
     **The second best irrigation method for your location is {best_two_options[1]}**.
-
-    Based on your inputs, **{best_two_options[0]}** is recommended for optimal water efficiency and crop yield.
-    This method is particularly effective for your selected plant type and location.
     """)
 
-    st.markdown(f"#### Related Research Papers and Configurations for {best_two_options[0]}")
+    st.markdown(f"#### Most Related Research Paper {best_two_options[0]}: ")
     # st.info(f"""{user_dict.loc[0, 'irrigation_scheduling_method_standardized']}""")
-    related_rows = load_related_data(user_dict, best_two_options[0])
+    most_related_row, link, summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
     if isinstance(related_rows, int):
         st.info("""No related data found""")
     else:
-        st.dataframe(related_rows)
+        col1, col2, col3 = st.cols(3)
+
+        with col1:
+            with st.expander("Experiment Summary"):
+                st.info(conditions_summary)
+                
+        with col2:
+            with st.expander("More details about irrigation scheduling method"):
+                for key, value in method_params.items():
+                    st.write(f"* **{key}:** {value}")
+        
+        with col3:
+            with st.expander("More details about experimental setup"):
+                for key, value in setup_params.items():
+                    st.write(f"* **{key}:** {value}")
+
+        st.info("""Source row from dataset""")
+        st.dataframe(most_related_row)
+        st.link_button("Click this to read more of this paper", link)
+                
     st.markdown(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling")
     st.markdown("#### Estimated Cost Range")
     
