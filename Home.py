@@ -19,28 +19,25 @@ st.set_page_config(
 )
 st.markdown("""
     <style>
-    /* Target the header container of the expander */
     .stExpander details summary {
-        background-color: #e3f2fd; /* Light Blue */
+        background-color: #e8f5e9; /* Very Light Green */
         border-radius: 5px;
         padding: 10px;
-        transition: background-color 0.3s;
+        border: 1px solid #c8e6c9; /* Subtle border */
     }
 
-    /* Change background color when hovering */
     .stExpander details summary:hover {
-        background-color: #bbdefb; /* Slightly darker blue on hover */
+        background-color: #c8e6c9; /* Slightly darker green on hover */
     }
 
-    /* Target the text inside the expander header */
     .stExpander details summary p {
-        color: #0d47a1 !important; /* Dark Blue text */
+        color: #2e7d32 !important; /* Forest Green text */
         font-weight: bold;
+        font-size: 1.1rem;
     }
     
-    /* Optional: Change the color of the expander arrow */
     .stExpander details summary svg {
-        fill: #0d47a1;
+        fill: #2e7d32;
     }
     </style>
     """, unsafe_allow_html=True)
