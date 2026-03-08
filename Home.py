@@ -29,7 +29,13 @@ st.markdown(
         background-size: cover;
     }}
 
-    /* This targets the specific background layer in newer Streamlit versions */
+    [data-testid="stForm"] {{
+        background-color: white !important;
+        padding: 40px !important;
+        border-radius: 15px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+    }}
+
     [data-testid="stAppViewContainer"] {{
         background-color: rgba(0,0,0,0); /* Make sure the container is transparent */
     }}
