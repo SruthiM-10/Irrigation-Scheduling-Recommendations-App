@@ -48,12 +48,12 @@ def get_info(method):
     * **Disease Prevention:** Reduces root rot and fungal issues caused by over-watering.
     * **Nutrient Retention:** Prevents "leaching," where excess water washes expensive fertilizers away from the roots."""
     
-      resources = """
-      #### **Technical Manuals**
+    resources = """
+    #### **Technical Manuals**
     * [USDA NRCS: Irrigation Water Management](https://www.nrcs.usda.gov/sites/default/files/2022-09/Irrigation_Water_Management_449_CPS_9_2020.pdf) - National standards for moisture-monitoring plans.
     * [UCANR: Soil Moisture Monitoring Guide](https://ucanr.edu/sites/default/files/2010-07/20513.pdf) - A deep dive into sensor types and data interpretation.
     * [MSU Extension: Sensor Setup Guide](https://extension.msstate.edu/publications/irrometer-watermark-series-installation-procedures) - A beginner-friendly guide to installing your first sensor array.
-      """
+    """
   elif method == "Evapotranspiration-Based":
     summary = """
     **Overview:** Evapotranspiration-based (ET) scheduling is a "supply-side" approach often called the **Checkbook Method**. It calculates how much water is "spent" by the crop and the sun each day and "deposits" that exact amount back into the soil via irrigation.
