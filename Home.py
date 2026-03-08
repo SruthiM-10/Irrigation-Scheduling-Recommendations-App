@@ -92,7 +92,7 @@ if st.session_state.page == 'home':
         st.markdown("### Location Information")
         st.markdown("""
         <div style="display: flex; align-items: left; margin-bottom: 3px;">
-            <span style="font-size: 14px; margin-right: 5px">Find your Lat/lon from your address</span>
+            <span style="font-size: 20px; margin-right: 5px">Find your Lat/lon from your address</span>
             <a href="https://www.latlong.net/" 
                target="_blank" 
                title="Latlong" 
