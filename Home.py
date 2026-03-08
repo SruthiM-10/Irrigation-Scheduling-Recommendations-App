@@ -122,111 +122,111 @@ if st.session_state.page == 'home':
 elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
+    else:
+        latitude = st.session_state.latitude
+        longitude = st.session_state.longitude
+        altitude = st.session_state.altitude
+        soil_type = st.session_state.soil_type
+        plant_type = st.session_state.plant_type
+        model_type = st.session_state.model_type
     
-    latitude = st.session_state.latitude
-    longitude = st.session_state.longitude
-    altitude = st.session_state.altitude
-    soil_type = st.session_state.soil_type
-    plant_type = st.session_state.plant_type
-    model_type = st.session_state.model_type
-
-    st.success("Form submitted successfully!")
-
-    # Display the input values (for demonstration)
-    with st.expander("View Input Parameters"):
-        st.write(f"- Latitude: {latitude}°")
-        st.write(f"- Longitude: {longitude}°")
-        st.write(f"- Altitude: {altitude} meters")
-        st.write(f"- Soil Type: {soil_type}")
-        st.write(f"- Plant Type: {plant_type}")
-
-    user_input = defaultdict(list)
-    for method in METHOD_LABEL:
-        user_input[CAT_COLUMNS[0]].append(plant_type)
-        user_input[CAT_COLUMNS[1]].append(method)
-        user_input[CAT_COLUMNS[2]].append(soil_type)
-        user_input[NUMERIC_COLUMNS[0]].append(latitude)
-        user_input[NUMERIC_COLUMNS[1]].append(longitude)
-        user_input[NUMERIC_COLUMNS[2]].append(altitude)
-
-    user_dict = pd.DataFrame(user_input)
-
-    if model_type == "XGBoost_Model (Recommended)":
-        model_type = "XGBoost_Model"
-    model = load_model(model_type)
-    predictions = model.predict(user_dict)
-
-    irrigation_method_yield = dict(
-        zip(METHOD_LABEL, predictions)
-    )
-
-    # sort the dictionary based on the yield
-    sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
-    # select the best first two options
-    best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
+        st.success("Form submitted successfully!")
     
-    st.markdown(f"### 🌟 Recommended Irrigation Method - {best_two_options[0]}")
-
-    with st.expander(f"#### What is {best_two_options[0]}?"):
-        pass
-
-    with st.expander(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling"):
-        pass
+        # Display the input values (for demonstration)
+        with st.expander("View Input Parameters"):
+            st.write(f"- Latitude: {latitude}°")
+            st.write(f"- Longitude: {longitude}°")
+            st.write(f"- Altitude: {altitude} meters")
+            st.write(f"- Soil Type: {soil_type}")
+            st.write(f"- Plant Type: {plant_type}")
+    
+        user_input = defaultdict(list)
+        for method in METHOD_LABEL:
+            user_input[CAT_COLUMNS[0]].append(plant_type)
+            user_input[CAT_COLUMNS[1]].append(method)
+            user_input[CAT_COLUMNS[2]].append(soil_type)
+            user_input[NUMERIC_COLUMNS[0]].append(latitude)
+            user_input[NUMERIC_COLUMNS[1]].append(longitude)
+            user_input[NUMERIC_COLUMNS[2]].append(altitude)
+    
+        user_dict = pd.DataFrame(user_input)
+    
+        if model_type == "XGBoost_Model (Recommended)":
+            model_type = "XGBoost_Model"
+        model = load_model(model_type)
+        predictions = model.predict(user_dict)
+    
+        irrigation_method_yield = dict(
+            zip(METHOD_LABEL, predictions)
+        )
+    
+        # sort the dictionary based on the yield
+        sorted_irrigation_method_yield = dict(sorted(irrigation_method_yield.items(), key=lambda x: x[1], reverse=True))
+        # select the best first two options
+        best_two_options = list(sorted_irrigation_method_yield.keys())[:2]
         
-    with st.expander(f"#### Most Related Research Paper in Dataset: "):
-        most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
-        if isinstance(most_related_row, int):
-            st.info("""No related data found""")
-        else:
-            st.info("""Source row from dataset""")
-            st.dataframe(most_related_row)
+        st.markdown(f"### 🌟 Recommended Irrigation Method - {best_two_options[0]}")
+    
+        with st.expander(f"#### What is {best_two_options[0]}?"):
+            pass
+    
+        with st.expander(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling"):
+            pass
             
-            col1, col2 = st.columns(2)
-    
-            with st.expander("More details about irrigation scheduling method"):
-                for key, value in eval(method_params).items():
-                    st.write(f"* **{key}:** {value}")
-    
-            with col1:
-                with st.expander("Experimental Setup (Paragraph)"):
-                    st.info(conditions_summary)
-                    
-            with col2:
-                with st.expander("Specific Details (Bullet-points)"):
-                    for key, value in eval(setup_params).items():
-                        st.write(f"* **{key}:** {value}")
-    
-            st.link_button("Click this to read more of this paper", link)
-
-    st.markdown(f"### 🌟 2nd Best Irrigation Method - {best_two_options[1]}")
-
-    with st.expander(f"#### What is {best_two_options[1]}?"):
-        pass
-
-    with st.expander(f"#### Helpful Links to Setup {best_two_options[1]} Irrigation Scheduling"):
-        pass
+        with st.expander(f"#### Most Related Research Paper in Dataset: "):
+            most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
+            if isinstance(most_related_row, int):
+                st.info("""No related data found""")
+            else:
+                st.info("""Source row from dataset""")
+                st.dataframe(most_related_row)
+                
+                col1, col2 = st.columns(2)
         
-    with st.expander(f"#### Most Related Research Paper in Dataset: "):
-        most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[1])
-        if isinstance(most_related_row, int):
-            st.info("""No related data found""")
-        else:
-            st.info("""Source row from dataset""")
-            st.dataframe(most_related_row)
-            
-            col1, col2 = st.columns(2)
-    
-            with st.expander("More details about irrigation scheduling method"):
-                for key, value in eval(method_params).items():
-                    st.write(f"* **{key}:** {value}")
-    
-            with col1:
-                with st.expander("Experimental Setup (Paragraph)"):
-                    st.info(conditions_summary)
-                    
-            with col2:
-                with st.expander("Specific Details (Bullet-points)"):
-                    for key, value in eval(setup_params).items():
+                with st.expander("More details about irrigation scheduling method"):
+                    for key, value in eval(method_params).items():
                         st.write(f"* **{key}:** {value}")
+        
+                with col1:
+                    with st.expander("Experimental Setup (Paragraph)"):
+                        st.info(conditions_summary)
+                        
+                with col2:
+                    with st.expander("Specific Details (Bullet-points)"):
+                        for key, value in eval(setup_params).items():
+                            st.write(f"* **{key}:** {value}")
+        
+                st.link_button("Click this to read more of this paper", link)
     
-            st.link_button("Click this to read more of this paper", link)
+        st.markdown(f"### 🌟 2nd Best Irrigation Method - {best_two_options[1]}")
+    
+        with st.expander(f"#### What is {best_two_options[1]}?"):
+            pass
+    
+        with st.expander(f"#### Helpful Links to Setup {best_two_options[1]} Irrigation Scheduling"):
+            pass
+            
+        with st.expander(f"#### Most Related Research Paper in Dataset: "):
+            most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[1])
+            if isinstance(most_related_row, int):
+                st.info("""No related data found""")
+            else:
+                st.info("""Source row from dataset""")
+                st.dataframe(most_related_row)
+                
+                col1, col2 = st.columns(2)
+        
+                with st.expander("More details about irrigation scheduling method"):
+                    for key, value in eval(method_params).items():
+                        st.write(f"* **{key}:** {value}")
+        
+                with col1:
+                    with st.expander("Experimental Setup (Paragraph)"):
+                        st.info(conditions_summary)
+                        
+                with col2:
+                    with st.expander("Specific Details (Bullet-points)"):
+                        for key, value in eval(setup_params).items():
+                            st.write(f"* **{key}:** {value}")
+        
+                st.link_button("Click this to read more of this paper", link)
