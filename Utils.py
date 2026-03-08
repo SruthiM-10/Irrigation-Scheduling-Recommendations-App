@@ -36,7 +36,7 @@ def get_info(method):
   resources = ""
   if method == "Soil Moisture-Based":
     summary = """
-    **Overview:** Soil moisture-based scheduling is a "demand-side" approach. Instead of guessing based on weather forecasts, you use sensors to measure the actual water content within the plant’s root zone. It’s like checking your car's fuel gauge rather than assuming you need gas every 300 miles.
+    **Overview:** Soil moisture-based scheduling is a demand-side approach. Instead of guessing based on weather forecasts, you use sensors to measure the actual water content within the plant’s root zone. It’s like checking your car's fuel gauge rather than assuming you need gas every 300 miles.
     
     **How it Works:**
     * **Measurement:** Sensors (Tensiometers or Capacitance probes) are placed at multiple depths to monitor the active root zone.
@@ -56,13 +56,13 @@ def get_info(method):
     """
   elif method == "Evapotranspiration-Based":
     summary = """
-    **Overview:** Evapotranspiration-based (ET) scheduling is a "supply-side" approach often called the **Checkbook Method**. It calculates how much water is "spent" by the crop and the sun each day and "deposits" that exact amount back into the soil via irrigation.
+    **Overview:** Evapotranspiration-based (ET) scheduling is a supply-side approach often called the **Checkbook Method**. It calculates how much water is spent by the crop and the sun each day and deposits that exact amount back into the soil via irrigation.
     
     **How it Works:**
     * **The Formula:** It combines **Evaporation** (water lost from soil) and **Transpiration** (water used by the plant).
     * **Reference ET ($ET_o$):** Uses weather data (temperature, humidity, wind, solar radiation) from local stations or satellite data.
     * **Crop Coefficient ($K_c$):** Multiplies the weather data by a factor specific to your plant (e.g., Maize needs more water during silking than as a seedling).
-    * **Action:** You maintain a "water balance" sheet. When the cumulative ET loss exceeds a set limit (e.g., 50% depletion), you irrigate.
+    * **Action:** You can maintain a water balance sheet. When the cumulative ET loss exceeds a set limit (e.g., 50% depletion), you irrigate.
     
     **Core Benefits:**
     * **Automation Ready:** Does not require burying sensors; can be managed entirely via weather station data or apps.
@@ -86,9 +86,9 @@ def get_info(method):
     **Overview:** Deficit Irrigation (DI) is a sophisticated water-management strategy where the crop is intentionally exposed to a controlled level of water stress. Instead of aiming for maximum water input, you aim for maximum **Water Use Efficiency (WUE)** and crop quality.
     
     **How it Works:**
-    * **Strategic Timing:** Water is withheld during growth stages that are "drought-tolerant" (like early vegetative growth or late ripening) and provided fully during "critical stages" (like flowering or fruit set).
+    * **Strategic Timing:** Water is withheld during growth stages that are drought-tolerant (like early vegetative growth or late ripening) and provided fully during critical stages (like flowering or fruit set).
     * **PRD (Partial Rootzone Drying):** A variation where one side of the root system is kept dry while the other is irrigated, tricking the plant into closing its stomata to save water without actually starving it.
-    * **Monitoring:** Requires careful observation to ensure stress doesn't cross the "permanent wilting point."
+    * **Monitoring:** Requires careful observation to ensure stress doesn't cross the permanent wilting point.
     
     **Core Benefits:**
     * **Resource Conservation:** Significant water savings (often 15-30%) with minimal impact on final harvest weight.
@@ -130,9 +130,10 @@ def get_info(method):
     * **Predictive Analysis:** Unlike ET-based (which looks at what happened), models look at **what will happen** over the next 5-7 days to optimize water application before the plant ever feels stress.
     
     **Core Benefits:**
-    * **Maximized Yield:** Tailors water to the exact biological "hunger" of the plant at every stage of its life.
+    * **Maximized Yield:** Tailors water to the exact biological need of the plant at every stage of its life.
     * **Labor Saving:** Fully digital; requires no field-buried sensors that can be damaged by tractors.
-    * **Resource Optimization:** Excellent for precision agriculture and variable-rate irrigation (VRI)."""
+    * **Resource Optimization:** Excellent for precision agriculture and variable-rate irrigation (VRI). 
+    """
 
     resources = """
     #### **Technical Manuals**
@@ -146,7 +147,7 @@ def get_info(method):
 
   elif method == "Specialized Irrigation Delivery":
     summary = """
-    **Overview:** This method focuses on **How** the water is delivered, prioritizing high-efficiency systems like **Drip, Sub-surface, or Micro-sprinklers**. It moves away from "flooding" the field and toward "feeding" the plant precisely at the base.
+    **Overview:** This method focuses on **how** the water is delivered, prioritizing high-efficiency systems like **Drip, Sub-surface, or Micro-sprinklers**. It moves away from flooding the field and toward feeding the plant precisely at the base.
     
     **How it Works:**
     * **Targeted Delivery:** Water is delivered directly to the root zone via emitters or porous pipes, bypassing the leaves and open soil where evaporation is highest.
