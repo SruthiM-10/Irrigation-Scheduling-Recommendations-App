@@ -21,12 +21,20 @@ st.set_page_config(
 st.markdown(
     f"""
     <style>
-    /* The main container */
     .stApp {{
         background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.3)), 
                     url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
         background-attachment: fixed;
         background-size: cover;
+    }}
+
+    div.element-container:has(#results-anchor), 
+    div.stVerticalBlock:has(#results-anchor) {{
+        background-color: white !important;
+        padding: 40px !important;
+        border-radius: 15px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+        margin-top: 20px !important;
     }}
     
     [data-testid="stForm"] {{
@@ -147,15 +155,8 @@ elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
         st.rerun()
-    else: 
-        st.markdown("""
-            .main .block-container {
-                background-color: rgba(255, 255, 255, 0.9); /* 90% white overlay */
-                border-radius: 20px;
-                margin-top: 50px;
-                padding: 50px;
-            }
-        """, unsafe_allow_html=True)
+    with st.container(border=True):
+        st.markdown('<div id="results-anchor"></div>', unsafe_allow_html=True)
         
         latitude = st.session_state.latitude
         longitude = st.session_state.longitude
