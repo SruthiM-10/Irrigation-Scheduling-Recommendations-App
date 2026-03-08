@@ -245,12 +245,12 @@ elif st.session_state.page == 'results':
     
         st.markdown(f"### 🌟 2nd Best Irrigation Method - {best_two_options[1]}")
     
-        summary, resources = get_info(best_two_options[0])
+        summary, resources = get_info(best_two_options[1])
     
-        with st.expander(f"**What is {best_two_options[0]} Irrigation Scheduling?**"):
+        with st.expander(f"**What is {best_two_options[1]} Irrigation Scheduling?**"):
             st.info(summary)
     
-        with st.expander(f"**Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling**"):
+        with st.expander(f"**Helpful Links to Setup {best_two_options[1]} Irrigation Scheduling**"):
             st.info(resources)
             
         with st.expander(f"**Most Related Research Paper in Dataset:**"):
