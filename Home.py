@@ -22,7 +22,7 @@ st.markdown(
      f"""
      <style>
      .stApp {{
-         background-image: url("https://pngtree.com/freebackground/center-pivot-irrigation-in-a-field-at-sunset-light_19223197.html");
+         background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
          background-attachment: fixed;
          background-size: cover;
      }}
