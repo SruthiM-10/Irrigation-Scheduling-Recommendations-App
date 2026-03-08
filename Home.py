@@ -20,18 +20,18 @@ st.set_page_config(
 st.markdown("""
     <style>
     .stExpander details summary {
-        background-color: #e8f5e9; /* Very Light Green */
+        background-color: #e8f5e9;
         border-radius: 5px;
         padding: 10px;
-        border: 1px solid #c8e6c9; /* Subtle border */
+        border: 1px solid #c8e6c9;
     }
 
     .stExpander details summary:hover {
-        background-color: #c8e6c9; /* Slightly darker green on hover */
+        background-color: #c8e6c9;
     }
 
     .stExpander details summary p {
-        color: #2e7d32 !important; /* Forest Green text */
+        color: #2e7d32 !important;
         font-weight: bold;
         font-size: 1.1rem;
     }
@@ -146,6 +146,7 @@ if st.session_state.page == 'home':
 elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
+        st.rerun()
     else:
         latitude = st.session_state.latitude
         longitude = st.session_state.longitude
