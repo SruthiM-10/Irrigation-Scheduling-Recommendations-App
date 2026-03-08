@@ -187,7 +187,7 @@ elif st.session_state.page == 'results':
         with st.expander(f"**Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling**"):
             pass
             
-        with st.expander(f"**Most Related Research Paper in Dataset: **"):
+        with st.expander(f"**Most Related Research Paper in Dataset:**"):
             most_related_row, link, conditions_summary, setup_params, method_params = load_related_data(user_dict, best_two_options[0])
             if isinstance(most_related_row, int):
                 st.info("""No related data found""")
