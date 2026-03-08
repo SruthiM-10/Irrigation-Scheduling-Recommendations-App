@@ -218,7 +218,7 @@ elif st.session_state.page == 'results':
                 st.info("""No related data found""")
             else:
                 st.info("""Source row from dataset""")
-                st.info(f"""★ **{most_related_row["distance"]}** meters away from your farm ★""")
+                st.info(f"""★ ≈**{(most_related_row["distance"] * 0.5) * 111320}** meters away from your farm ★""")
                 st.dataframe(most_related_row)
                         
                 with st.expander("More details about irrigation scheduling method"):
@@ -245,7 +245,7 @@ elif st.session_state.page == 'results':
                 st.info("""No related data found""")
             else:
                 st.info("""Source row from dataset""")
-                st.info(f"""★ **{most_related_row["distance"]} meters** away from your farm ★""")
+                st.info(f"""★ ≈**{(most_related_row["distance"] * 0.5) * 111320}** meters away from your farm ★""")
                 st.dataframe(most_related_row)
                         
                 with st.expander("More details about irrigation scheduling method"):
