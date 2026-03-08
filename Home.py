@@ -29,26 +29,26 @@ st.markdown(
         background-size: cover;
     }}
     
-    [data-testid="stForm"] {
+    [data-testid="stForm"] {{
         background-color: white !important;
         padding: 30px !important;
         border-radius: 15px !important;
-    }
+    }}
 
     div[data-testid="stVerticalBlock"]:has(> div[style*="border"]) ,
     .stElementContainer:has(div[style*="border"]),
-    div[style*="border-bottom-style"][style*="border-top-style"] {
+    div[style*="border-bottom-style"][style*="border-top-style"] {{
         background-color: white !important;
         padding: 30px !important;
         border-radius: 15px !important;
         color: black !important;
-    }
+    }}
 
-    [data-testid="stVerticalBlockBorderWrapper"] > div {
+    [data-testid="stVerticalBlockBorderWrapper"] > div {{
         background-color: white !important;
         padding: 20px !important;
         border-radius: 15px !important;
-    }
+    }}
 
     [data-testid="stAppViewContainer"] {{
         background-color: rgba(0,0,0,0); /* Make sure the container is transparent */
