@@ -16,21 +16,15 @@ def load_related_data(user_data, method):
   min_distance = dataset['distance'].min()
   closest_rows = dataset[dataset['distance'] == min_distance]
 
-  if len(closest_rows) == 1:
-    return closest_rows
-
-  closest_rows = closest_rows[closest_rows['plant_type_standardized_to_10'] == user_data.loc[0, 'plant_type_standardized_to_10']]
-  if len(closest_rows) == 1:
-    return closest_rows
+  if len(closest_rows) > 1:
+    closest_rows = closest_rows[closest_rows['plant_type_standardized_to_10'] == user_data.loc[0, 'plant_type_standardized_to_10']]
 
   if len(closest_rows) == 0:
-    return -1
+    return -1, -1, -1, -1, -1
 
   closest_row = closest_rows.iloc[0]
   link = closest_row["doi_url"]
-  summary, setup_params, method_params = get_conditions(closest_row.index)
-  st.info(f"""link {link}, summary {summary}, setup_params {setup_params}, method_params {method_params}""")
-  
+  summary, setup_params, method_params = get_conditions(closest_row.index)  
   return closest_row, link, summary, setup_params, method_params
 
 def get_conditions(index):
