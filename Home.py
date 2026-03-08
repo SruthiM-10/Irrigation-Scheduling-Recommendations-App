@@ -178,24 +178,24 @@ elif st.session_state.page == 'results':
     if isinstance(most_related_row, int):
         st.info("""No related data found""")
     else:
-        col1, col2, col3 = st.columns(3)
+        st.info("""Source row from dataset""")
+        st.dataframe(most_related_row)
+        
+        col1, col2 = st.columns(2)
+
+        with st.expander("More details about irrigation scheduling method"):
+            for key, value in eval(method_params).items():
+                st.write(f"* **{key}:** {value}")
 
         with col1:
-            with st.expander("Experiment Summary"):
+            with st.expander("Experimental Setup (Paragraph)"):
                 st.info(conditions_summary)
                 
         with col2:
-            with st.expander("More details about irrigation scheduling method"):
-                for key, value in eval(method_params).items():
-                    st.write(f"* **{key}:** {value}")
-        
-        with col3:
-            with st.expander("More details about experimental setup"):
+            with st.expander("Specific Details (Bullet-points)"):
                 for key, value in eval(setup_params).items():
                     st.write(f"* **{key}:** {value}")
 
-        st.info("""Source row from dataset""")
-        st.dataframe(most_related_row)
         st.link_button("Click this to read more of this paper", link)
                 
     st.markdown(f"#### Helpful Links to Setup {best_two_options[0]} Irrigation Scheduling")
