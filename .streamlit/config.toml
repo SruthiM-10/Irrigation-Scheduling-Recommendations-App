@@ -1,0 +1,6 @@
+[theme]
+base = "light"
+primaryColor = "#2e8b57" # Optional: This matches the green we used for your icons
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
