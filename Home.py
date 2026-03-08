@@ -132,6 +132,19 @@ if st.session_state.page == 'home':
         # Soil type and plant type in the same row
         col4, col5 = st.columns(2)
         with col4:
+            st.markdown("""
+                <div style="display: flex; align-items: center; margin-bottom: -15px;">
+                    <span style="font-size: 14px; font-weight: bold; margin-right: 5px;">Soil Type</span>
+                    <a href="https://www.nrcs.usda.gov/sites/default/files/2022-09/The-Soil-Texture-Triangle.pdf" 
+                       target="_blank" 
+                       title="View USDA Soil Texture Chart" 
+                       style="text-decoration: none; color: #2e8b57; cursor: pointer;">
+                       ⓘ
+                    </a>
+                </div>
+                """, 
+                unsafe_allow_html=True
+            )
             st.selectbox(
                 "Soil Type",
                 ['coarse sands', 'fine sands', 'loamy sands', 'sandy loams', 'fine sandy loams', 'silt loams',  
