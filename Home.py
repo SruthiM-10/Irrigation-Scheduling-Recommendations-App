@@ -19,29 +19,24 @@ st.set_page_config(
 )
 
 st.markdown(
-     f"""
-     <style>
-     .stApp {{
-         background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
-         background-attachment: fixed;
-         background-size: cover;
-     }}
+    f"""
+    <style>
+    /* The main container */
+    .stApp {{
+        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                    url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
+        background-attachment: fixed;
+        background-size: cover;
+    }}
 
-     /* Optional: Adds a dark/light overlay to make text more readable */
-     .stApp::before {{
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.9); /* Adjust opacity here */
-        z-index: -1;
-     }}
-     </style>
-     """,
-     unsafe_allow_html=True
- )
+    /* This targets the specific background layer in newer Streamlit versions */
+    [data-testid="stAppViewContainer"] {{
+        background-color: rgba(0,0,0,0); /* Make sure the container is transparent */
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 CAT_COLUMNS = ["plant_type_standardized_to_10", "irrigation_scheduling_method_standardized", "soil_type_standardized"]
 NUMERIC_COLUMNS  = ["latitude_decimal_degrees", "longitude_decimal_degrees", "altitude_numeric"]
