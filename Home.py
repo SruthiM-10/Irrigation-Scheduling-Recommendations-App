@@ -149,14 +149,12 @@ elif st.session_state.page == 'results':
         st.rerun()
     else: 
         st.markdown("""
-            <div style="
-                background-color: white;
-                padding: 30px;
-                border-radius: 15px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                color: #333;
-                margin-bottom: 20px;
-            ">
+            .main .block-container {
+                background-color: rgba(255, 255, 255, 0.9); /* 90% white overlay */
+                border-radius: 20px;
+                margin-top: 50px;
+                padding: 50px;
+            }
         """, unsafe_allow_html=True)
         
         latitude = st.session_state.latitude
