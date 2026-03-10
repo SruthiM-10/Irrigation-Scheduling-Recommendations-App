@@ -112,7 +112,7 @@ if st.session_state.page == 'home':
                 max_value=90.0,
                 value=0.0,
                 step=1.0,
-                format="%.6f",
+                format="%.3f",
                 key='latitude'
             )
     
@@ -123,7 +123,7 @@ if st.session_state.page == 'home':
                 max_value=180.0,
                 value=0.0,
                 step=1.0,
-                format="%.6f",
+                format="%.3f",
                 key='longitude'
             )
     
