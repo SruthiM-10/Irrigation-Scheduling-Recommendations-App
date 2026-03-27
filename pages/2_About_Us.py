@@ -40,9 +40,7 @@ st.markdown(
         max-width: 1100px;
         margin: 2rem auto;
         animation: slideUp 0.8s ease-out forwards;
-    }
-
-    .about-title {
+        
         font-family: 'Outfit', sans-serif;
         font-size: 3.5rem;
         font-weight: 900;
