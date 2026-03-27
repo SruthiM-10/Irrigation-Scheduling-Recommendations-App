@@ -9,65 +9,116 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    .bio-container {
-        background-color: #f7fff7;
-        padding: 3rem;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        border-left: 5px solid #2e8b57;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap');
+
+    html, body, [class*="st-"] {
+        font-family: 'Inter', sans-serif;
     }
-    .bio-header {
-        font-size: 2.5rem;
-        color: #2e8b57;
-        margin-bottom: 1.5rem;
-        font-weight: 800;
-        font-family: sans-serif;
+
+    .stApp {
+        background: radial-gradient(circle at top right, #0a192f, #020c1b);
+        color: white;
     }
-    .bio-text {
+
+    /* Container for the About Section */
+    .about-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2rem;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        max-width: 1000px;
+        margin: 0 auto;
+        animation: slideUp 0.8s ease-out forwards;
+    }
+
+    .about-title {
+        font-family: 'Outfit', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 3rem;
+        background: linear-gradient(135deg, #00F260, #0575E6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+    }
+
+    .bio-content {
         font-size: 1.2rem;
         line-height: 1.8;
-        color: #333;
-        text-align: justify;
+        color: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border-left: 4px solid #00F260;
     }
-    .photo-placeholder {
+
+    .bio-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    .photo-area {
         width: 100%;
         height: 400px;
-        background-color: #f0f0f0;
-        border-radius: 15px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+        border-radius: 20px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: #888;
-        font-size: 1.2rem;
-        border: 2px dashed #ccc;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease;
+        color: rgba(255,255,255,0.5);
+        border: 2px dashed rgba(255,255,255,0.2);
+        transition: transform 0.4s ease, border-color 0.4s ease;
     }
-    .photo-placeholder:hover {
-        transform: scale(1.02);
+
+    .photo-area:hover {
+        transform: translateY(-10px);
+        border-color: #00F260;
+        background: linear-gradient(135deg, rgba(0,242,96,0.1), rgba(5,117,230,0.1));
+    }
+
+    .photo-icon {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-st.markdown("<h1 style='text-align: center; color: #222; margin-bottom: 3rem; font-weight: 800;'>Meet the Creator</h1>", unsafe_allow_html=True)
+st.markdown("<div class='about-title'>Meet the Creator</div>", unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 2], gap="large")
+col1, col2 = st.columns([1, 1.5], gap="large")
 
 with col1:
-    st.markdown("<div class='photo-placeholder'>🖼️ Your Photo Here</div>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: #666; margin-top: 1rem;'><em>Sruthi</em></p>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div class='photo-area'>
+            <div class='photo-icon'>📸</div>
+            <div style='font-family: Outfit; font-weight: 700; font-size: 1.5rem;'>Sruthi</div>
+            <div style='font-size: 0.9rem; margin-top: 0.5rem;'>Photo Placeholder</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 with col2:
     st.markdown(
         """
-        <div class="bio-container">
-            <div class="bio-header">Hi, I'm Sruthi! 👋</div>
-            <div class="bio-text">
-                <p>I am a sophomore at Basis Independent Silicon Valley in California. I have six years of coding experience and love exploring the intersection of algorithms and data science to promote sustainability.</p>
-                <p>I do environmental advocacy with the Silicon Valley Climate Youth Action. In my free time, I love reading, playing the violin, and biking with my family.</p>
-            </div>
+        <div class="bio-content">
+            <h3 style="font-family: 'Outfit'; color: white; font-size: 2rem; margin-bottom: 1.5rem;">Hi, I'm Sruthi! 👋</h3>
+            <p>I am a sophomore at Basis Independent Silicon Valley in California. I have six years of coding experience and love exploring the intersection of algorithms and data science to promote sustainability.</p>
+            <p>I do environmental advocacy with the Silicon Valley Climate Youth Action. In my free time, I love reading, playing the violin, and biking with my family.</p>
         </div>
         """,
         unsafe_allow_html=True
