@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Irrigation Recommendation System",
-    page_icon="🌾",
+    page_icon="💧",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -262,6 +262,28 @@ st.markdown("<div class='cta-subtitle'>Get personalized estimates for plant yiel
 # Using st.page_link for robust multi-page navigation styling
 col_empty1, col_btn, col_empty2 = st.columns([1, 2, 1])
 with col_btn:
-    st.page_link("pages/1_Irrigation_Tool.py", label="Get Your Recommendation 🚀", icon="💧")
+    st.markdown(
+        '''
+        <a href="Irrigation_Tool" target="_self" style="
+            background: linear-gradient(90deg, #00F260, #0575E6);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 242, 96, 0.4);
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        ">
+            💧 Get Your Recommendation 🚀
+        </a>
+        ''',
+        unsafe_allow_html=True
+    )
 
 st.markdown("</div>", unsafe_allow_html=True)
