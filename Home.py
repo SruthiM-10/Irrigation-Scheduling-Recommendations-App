@@ -185,11 +185,12 @@ st.markdown(
     <div class="hero-glass">
         <h1>Simple Irrigation Scheduling Method Recommendation</h1>
         <p>Empowering farmers to discover field-tested irrigation schedules. <b>Get personalized suggestions that take very little time and effort to implement!</b> Start applying optimal methods right away to match your desired workflow.</p>
-        <div class="award-badge">🏆 Based on Award-winning Projects and Research presented at IEEE Technologies for Sustainability 2026</div>
+        <div class="award-badge">🏆 Based on Research presented at IEEE Technologies for Sustainability 2026</div>
     </div>
     """,
     unsafe_allow_html=True
 )
+#         <div class="award-badge">🏆 Based on Award-winning Projects and Research presented at IEEE Technologies for Sustainability 2026</div>
 
 st.markdown("<div class='title-wrapper'><h2 class='section-title'>Why Follow our Recommendations?</h2></div>", unsafe_allow_html=True)
 
