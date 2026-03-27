@@ -14,15 +14,20 @@ st.markdown(
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap');
 
-    html, body, [class*="st-"] {
+    .stMainBlockContainer, .stMain {
         font-family: 'Inter', sans-serif;
     }
-    h1, h2, h3 {
+    
+    .stMain h1, .stMain h2, .stMain h3 {
         font-family: 'Outfit', sans-serif !important;
     }
 
-
-    /* White Mode Glassmorphism Hero Section */
+    .stApp {
+        background: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
     .hero-glass {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
@@ -66,7 +71,6 @@ st.markdown(
         box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
     }
 
-    /* White Mode Glassmorphism Metric Cards */
     .metric-card-glass {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(16px);
@@ -166,9 +170,9 @@ st.markdown(
 st.markdown(
     """
     <div class="hero-glass">
-        <h1>Smart Irrigation AI</h1>
+        <h1>Simple Irrigation Scheduling Method Recommendation</h1>
         <p>Empowering farmers to discover field-tested irrigation schedules. <b>Get personalized suggestions that take very little time and effort to implement!</b> Start applying optimal methods right away to match your desired workflow.</p>
-        <div class="award-badge">🏆 Based on IEEE IS-Tech 2026 Award-Winning Research</div>
+        <div class="award-badge">🏆 Based on Award-winning Projects and Research presented at IEEE Technologies for Sustainability 2026</div>
     </div>
     """,
     unsafe_allow_html=True
@@ -227,7 +231,6 @@ with col4:
         unsafe_allow_html=True
     )
 
-# CTA Section
 st.markdown("<div class='cta-glass'>", unsafe_allow_html=True)
 st.markdown("<div class='cta-title'>Ready to transform your farm with zero hassle?</div>", unsafe_allow_html=True)
 st.markdown("<div class='cta-subtitle'>Get personalized estimates requiring minimal effort for massive plant yield and water usage improvements.</div>", unsafe_allow_html=True)
