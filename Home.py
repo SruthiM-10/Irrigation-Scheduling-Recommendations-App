@@ -135,11 +135,8 @@ st.markdown(
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: 24px;
-        padding: 4rem 2rem;
         text-align: center;
         border: 2px solid #2e8b57;
-        margin-bottom: 4rem;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         
         color: #2e8b57;
@@ -152,11 +149,7 @@ st.markdown(
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-radius: 24px;
-        padding: 4rem 2rem;
         text-align: center;
-        border: 2px solid #2e8b57;
-        margin-bottom: 4rem;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         
         color: #444;
@@ -187,56 +180,47 @@ st.markdown(
 
 st.markdown("<div class='title-wrapper'><h2 class='section-title'>Why Follow our Recommendations?</h2></div>", unsafe_allow_html=True)
 
-# Metrics Columns
-col1, col2, col3, col4 = st.columns(4)
-
-with col1:
-    st.markdown(
-        """
-        <div class="metric-card-glass">
-            <div class="metric-icon">⚡</div>
-            <div class="metric-label-glass">Low Effort</div>
-            <p class="metric-desc-glass">Quick to start and very easy to implement. Personalized to the kind of system YOU prefer.</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-with col2:
-    st.markdown(
-        """
-        <div class="metric-card-glass">
-            <div class="metric-icon">💧</div>
-            <div class="metric-label-glass">Water Savings</div>
-            <p class="metric-desc-glass">Small irrigation scheduling method changes, such as between a sensor network and a checkbook balancing method, can cut water usage by 20% or more!</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-with col3:
-    st.markdown(
-        """
-        <div class="metric-card-glass">
-            <div class="metric-icon">🌱</div>
-            <div class="metric-label-glass">Higher Yield</div>
-            <p class="metric-desc-glass">Healthier plants and robust harvests. Correct soil moisture maximizes your crops' absolute growth potential.</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-with col4:
-    st.markdown(
-        """
-        <div class="metric-card-glass">
-            <div class="metric-icon">📉</div>
-            <div class="metric-label-glass">Cost Reduction</div>
-            <p class="metric-desc-glass">Lowering pumping energy and minimizing fertilizer runoff efficiently transforms into greater operational profit.</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+# Metrics Rows
+st.markdown(
+    """
+    <div class="metric-card-glass">
+        <div class="metric-icon">⚡</div>
+        <div class="metric-label-glass">Low Effort</div>
+        <p class="metric-desc-glass">Quick to start and very easy to implement. Personalized to the kind of system YOU prefer.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div class="metric-card-glass">
+        <div class="metric-icon">💧</div>
+        <div class="metric-label-glass">Water Savings</div>
+        <p class="metric-desc-glass">Small irrigation scheduling method changes, such as between a sensor network and a checkbook balancing method, can cut water usage by 20% or more!</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div class="metric-card-glass">
+        <div class="metric-icon">🌱</div>
+        <div class="metric-label-glass">Higher Yield</div>
+        <p class="metric-desc-glass">Healthier plants and robust harvests. Correct soil moisture maximizes your crops' absolute growth potential.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <div class="metric-card-glass">
+        <div class="metric-icon">📉</div>
+        <div class="metric-label-glass">Cost Reduction</div>
+        <p class="metric-desc-glass">Lowering pumping energy and minimizing fertilizer runoff efficiently transforms into greater operational profit.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 st.markdown("<div class='cta-title'>Ready to transform your farm?</div>", unsafe_allow_html=True)
 st.markdown("<div class='cta-subtitle'>Get personalized estimates requiring minimal effort for plant yield and water usage improvements.</div>", unsafe_allow_html=True)
