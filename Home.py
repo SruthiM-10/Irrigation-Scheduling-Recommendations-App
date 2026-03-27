@@ -7,34 +7,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Explicitly defining sidebar navigation
-with st.sidebar:
-    st.markdown("## Navigation", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <style>
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 1.1rem;
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            background-color: #f0f2f6;
-            transition: background-color 0.2s;
-        }
-        .nav-link:hover {
-            background-color: #e0e4eb;
-            color: #000;
-        }
-        </style>
-        <a href="Home" target="_self" class="nav-link">🏠 Home</a>
-        <a href="Irrigation_Tool" target="_self" class="nav-link">💧 Irrigation Tool</a>
-        <a href="About_Us" target="_self" class="nav-link">👩‍💻 About Us</a>
-        """,
-        unsafe_allow_html=True
-    )
+
 
 st.markdown(
     """
@@ -268,28 +241,11 @@ st.markdown("<div class='cta-subtitle'>Get personalized estimates requiring mini
 
 col_empty1, col_btn, col_empty2 = st.columns([1, 2, 1])
 with col_btn:
-    st.markdown(
-        '''
-        <a href="Irrigation_Tool" target="_self" style="
-            background: #2e8b57;
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(46, 139, 87, 0.4);
-            display: inline-block;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        ">
-            💧 Get Your Recommendation Now 🚀
-        </a>
-        ''',
-        unsafe_allow_html=True
-    )
+    if st.button("💧 Get Your Recommendation Now 🚀", use_container_width=True):
+        try:
+            st.switch_page("pages/1_Irrigation_Tool.py")
+        except Exception:
+            # Fallback for Streamlit Cloud paths
+            st.write("Navigation error! Please select the tool manually from the sidebar.")
 
 st.markdown("</div>", unsafe_allow_html=True)

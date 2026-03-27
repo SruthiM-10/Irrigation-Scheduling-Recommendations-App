@@ -7,34 +7,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Explicitly defining sidebar navigation
-with st.sidebar:
-    st.markdown("## Navigation", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <style>
-        .nav-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 1.1rem;
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            background-color: #f0f2f6;
-            transition: background-color 0.2s;
-        }
-        .nav-link:hover {
-            background-color: #e0e4eb;
-            color: #000;
-        }
-        </style>
-        <a href="Home" target="_self" class="nav-link">🏠 Home</a>
-        <a href="Irrigation_Tool" target="_self" class="nav-link">💧 Irrigation Tool</a>
-        <a href="About_Us" target="_self" class="nav-link">👩‍💻 About Us</a>
-        """,
-        unsafe_allow_html=True
-    )
+
 
 st.markdown(
     """
