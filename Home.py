@@ -73,26 +73,26 @@ st.markdown(
 
     .metric-card-glass {
         background: linear-gradient(
-            135deg, 
-            rgba(46, 139, 87, 0.15) 0%, 
-            rgba(255, 255, 255, 0.9) 50%, 
-            rgba(144, 238, 144, 0.1) 100%
+            145deg, 
+            rgba(255, 255, 255, 0.98) 0%, 
+            rgba(232, 245, 233, 0.95) 50%,
+            rgba(200, 230, 201, 0.5) 100%
         );
         
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        padding: 1.5rem; /* Increased padding for better breathing room */
-        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 2rem 1.5rem;
+        border-radius: 24px;
         text-align: left;
         
-        border: 1px solid rgba(46, 139, 87, 0.2);
-        border-top: 1px solid rgba(255, 255, 255, 0.5); /* Adds a "shine" on top */
+        border-left: 5px solid #2e8b57; 
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: all 0.3s ease-in-out;
         height: 100%;
-        color: #111;
-        
-        box-shadow: 0 10px 30px rgba(46, 139, 87, 0.1);
+        box-shadow: 0 8px 32px rgba(46, 139, 87, 0.08);
     }
     
     .metric-card-glass:hover {
