@@ -75,6 +75,7 @@ st.markdown(
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
+        padding: 1rem 0rem;
         border-radius: 20px;
         text-align: left;
         border: 1px solid rgba(0, 0, 0, 0.1);
