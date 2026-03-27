@@ -3,8 +3,38 @@ import streamlit as st
 st.set_page_config(
     page_title="About Us",
     page_icon="👩‍💻",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
+
+# Explicitly defining sidebar navigation
+with st.sidebar:
+    st.markdown("## Navigation", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <style>
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background-color: #f0f2f6;
+            transition: background-color 0.2s;
+        }
+        .nav-link:hover {
+            background-color: #e0e4eb;
+            color: #000;
+        }
+        </style>
+        <a href="Home" target="_self" class="nav-link">🏠 Home</a>
+        <a href="Irrigation_Tool" target="_self" class="nav-link">💧 Irrigation Tool</a>
+        <a href="About_Us" target="_self" class="nav-link">👩‍💻 About Us</a>
+        """,
+        unsafe_allow_html=True
+    )
 
 st.markdown(
     """
@@ -16,8 +46,10 @@ st.markdown(
     }
 
     .stApp {
-        background: radial-gradient(circle at top right, #0a192f, #020c1b);
-        color: white;
+        background: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
     }
 
     /* Container for the About Section */
@@ -26,14 +58,14 @@ st.markdown(
         flex-direction: column;
         align-items: center;
         padding: 4rem 2rem;
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         border-radius: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        max-width: 1000px;
-        margin: 0 auto;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        max-width: 1100px;
+        margin: 2rem auto;
         animation: slideUp 0.8s ease-out forwards;
     }
 
@@ -42,20 +74,19 @@ st.markdown(
         font-size: 3.5rem;
         font-weight: 900;
         margin-bottom: 3rem;
-        background: linear-gradient(135deg, #00F260, #0575E6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #2e8b57;
         text-align: center;
     }
 
     .bio-content {
         font-size: 1.2rem;
         line-height: 1.8;
-        color: rgba(255, 255, 255, 0.85);
-        background: rgba(255, 255, 255, 0.05);
+        color: #333;
+        background: rgba(240, 248, 240, 0.8);
         padding: 2.5rem;
         border-radius: 20px;
-        border-left: 4px solid #00F260;
+        border-left: 5px solid #2e8b57;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
     .bio-content p {
@@ -65,21 +96,22 @@ st.markdown(
     .photo-area {
         width: 100%;
         height: 400px;
-        background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+        background: #f7f9fc;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: rgba(255,255,255,0.5);
-        border: 2px dashed rgba(255,255,255,0.2);
+        color: #666;
+        border: 2px dashed #b0c4b1;
         transition: transform 0.4s ease, border-color 0.4s ease;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
     }
 
     .photo-area:hover {
-        transform: translateY(-10px);
-        border-color: #00F260;
-        background: linear-gradient(135deg, rgba(0,242,96,0.1), rgba(5,117,230,0.1));
+        transform: translateY(-5px);
+        border-color: #2e8b57;
+        background: #f0f7f2;
     }
 
     .photo-icon {
@@ -96,6 +128,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown("<div class='about-wrapper'>", unsafe_allow_html=True)
 st.markdown("<div class='about-title'>Meet the Creator</div>", unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 1.5], gap="large")
@@ -105,8 +138,8 @@ with col1:
         """
         <div class='photo-area'>
             <div class='photo-icon'>📸</div>
-            <div style='font-family: Outfit; font-weight: 700; font-size: 1.5rem;'>Sruthi</div>
-            <div style='font-size: 0.9rem; margin-top: 0.5rem;'>Photo Placeholder</div>
+            <div style='font-family: Outfit; font-weight: 700; font-size: 1.5rem; color: #111;'>Sruthi</div>
+            <div style='font-size: 0.9rem; margin-top: 0.5rem;'>Photo space reserved</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -116,10 +149,12 @@ with col2:
     st.markdown(
         """
         <div class="bio-content">
-            <h3 style="font-family: 'Outfit'; color: white; font-size: 2rem; margin-bottom: 1.5rem;">Hi, I'm Sruthi! 👋</h3>
+            <h3 style="font-family: 'Outfit'; color: #2e8b57; font-size: 2.2rem; margin-bottom: 1.5rem;">Hi, I'm Sruthi! 👋</h3>
             <p>I am a sophomore at Basis Independent Silicon Valley in California. I have six years of coding experience and love exploring the intersection of algorithms and data science to promote sustainability.</p>
             <p>I do environmental advocacy with the Silicon Valley Climate Youth Action. In my free time, I love reading, playing the violin, and biking with my family.</p>
         </div>
         """,
         unsafe_allow_html=True
     )
+
+st.markdown("</div>", unsafe_allow_html=True)

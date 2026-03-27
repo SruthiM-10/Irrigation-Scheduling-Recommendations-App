@@ -7,46 +7,68 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Explicitly defining sidebar navigation
+with st.sidebar:
+    st.markdown("## Navigation", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <style>
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background-color: #f0f2f6;
+            transition: background-color 0.2s;
+        }
+        .nav-link:hover {
+            background-color: #e0e4eb;
+            color: #000;
+        }
+        </style>
+        <a href="Home" target="_self" class="nav-link">🏠 Home</a>
+        <a href="Irrigation_Tool" target="_self" class="nav-link">💧 Irrigation Tool</a>
+        <a href="About_Us" target="_self" class="nav-link">👩‍💻 About Us</a>
+        """,
+        unsafe_allow_html=True
+    )
+
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap');
 
-    /* Global Typography */
     html, body, [class*="st-"] {
         font-family: 'Inter', sans-serif;
     }
-
     h1, h2, h3 {
         font-family: 'Outfit', sans-serif !important;
     }
 
     /* Fixed Background for the whole app */
     .stApp {
-        background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.85)), 
-                    url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
+        background: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
         background-attachment: fixed;
         background-size: cover;
         background-position: center;
     }
 
-    /* Hide standard UI elements for a cleaner look */
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    
-    /* Glassmorphism Hero Section */
+    /* White Mode Glassmorphism Hero Section */
     .hero-glass {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         padding: 5rem 3rem;
         border-radius: 24px;
-        color: #ffffff;
+        color: #111111;
         text-align: center;
         margin-top: 2rem;
         margin-bottom: 4rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         animation: fadeIn 1s ease-out;
     }
     
@@ -54,17 +76,14 @@ st.markdown(
         font-size: 4.5rem;
         font-weight: 900;
         margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #00F260, #0575E6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0px 4px 15px rgba(0,242,96,0.3);
+        color: #2e8b57;
     }
     
     .hero-glass p {
         font-size: 1.4rem;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 1.7;
-        opacity: 0.9;
+        color: #444;
         max-width: 900px;
         margin: 0 auto 1.5rem auto;
     }
@@ -81,38 +100,31 @@ st.markdown(
         box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
     }
 
-    /* Glassmorphism Metric Cards */
-    .metrics-container {
-        margin-bottom: 4rem;
-    }
-    
+    /* White Mode Glassmorphism Metric Cards */
     .metric-card-glass {
-        background: rgba(255, 255, 255, 0.07);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         padding: 2.5rem 2rem;
         border-radius: 20px;
         text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         height: 100%;
-        color: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        color: #111;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
     .metric-card-glass:hover {
-        transform: translateY(-12px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(0,242,96,0.2);
-        border-color: rgba(0, 242, 96, 0.4);
-        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(46, 139, 87, 0.2);
+        border-color: #2e8b57;
     }
     
     .metric-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
-        background: linear-gradient(135deg, #00F260, #0575E6);
-        -webkit-background-clip: text;
-        color: transparent;
+        color: #2e8b57;
         display: inline-block;
     }
     
@@ -120,13 +132,13 @@ st.markdown(
         font-size: 1.6rem;
         font-weight: 700;
         font-family: 'Outfit', sans-serif;
-        color: #fff;
+        color: #111;
         margin-bottom: 1rem;
         letter-spacing: 0.5px;
     }
     
     .metric-desc-glass {
-        color: rgba(255, 255, 255, 0.75);
+        color: #555;
         font-size: 1.05rem;
         line-height: 1.6;
     }
@@ -134,62 +146,45 @@ st.markdown(
     h2.section-title {
         text-align: center;
         margin-bottom: 3rem;
-        color: #ffffff;
+        color: #2e8b57;
+        background: rgba(255,255,255,0.95);
+        padding: 1rem;
+        border-radius: 15px;
+        display: inline-block;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         font-size: 3rem;
         font-weight: 800;
         letter-spacing: -1px;
     }
     
-    /* Modern CTA Section */
+    .title-wrapper {
+        text-align: center;
+    }
+    
+    /* Modern white CTA Section */
     .cta-glass {
-        background: linear-gradient(135deg, rgba(0, 242, 96, 0.1), rgba(5, 117, 230, 0.1));
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 24px;
         padding: 4rem 2rem;
         text-align: center;
-        border: 1px solid rgba(0, 242, 96, 0.3);
+        border: 2px solid #2e8b57;
         margin-bottom: 4rem;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     }
     
     .cta-title {
-        color: #ffffff;
+        color: #2e8b57;
         font-size: 2.5rem;
         font-weight: 800;
         margin-bottom: 1rem;
     }
     
     .cta-subtitle {
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 1.2rem;
+        color: #444;
+        font-size: 1.3rem;
         margin-bottom: 2.5rem;
-    }
-
-    /* Page-link button styling */
-    .stPageLink {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .stPageLink a {
-        background: linear-gradient(90deg, #00F260, #0575E6) !important;
-        color: white !important;
-        font-family: 'Outfit', sans-serif;
-        font-size: 1.3rem !important;
-        font-weight: 700 !important;
-        padding: 1rem 3rem !important;
-        border-radius: 50px !important;
-        text-decoration: none !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 10px 25px rgba(0, 242, 96, 0.4) !important;
-        border: none !important;
-        display: inline-block !important;
-    }
-    
-    .stPageLink a:hover {
-        transform: scale(1.05) translateY(-3px) !important;
-        box-shadow: 0 15px 35px rgba(5, 117, 230, 0.6) !important;
-        background: linear-gradient(90deg, #0575E6, #00F260) !important;
     }
 
     @keyframes fadeIn {
@@ -206,25 +201,25 @@ st.markdown(
     """
     <div class="hero-glass">
         <h1>Smart Irrigation AI</h1>
-        <p>Empowering farmers to discover and implement field-tested irrigation schedules. Get personalized, data-driven recommendations optimized for your unique location, crop, and soil.</p>
+        <p>Empowering farmers to discover field-tested irrigation schedules. <b>Get personalized suggestions that take very little time and effort to implement!</b> Start applying optimal methods right away to match your desired workflow.</p>
         <div class="award-badge">🏆 Based on IEEE IS-Tech 2026 Award-Winning Research</div>
     </div>
     """,
     unsafe_allow_html=True
 )
 
-st.markdown("<h2 class='section-title'>Why Optimize Your Irrigation?</h2>", unsafe_allow_html=True)
+st.markdown("<div class='title-wrapper'><h2 class='section-title'>Why Optimize Your Irrigation?</h2></div>", unsafe_allow_html=True)
 
 # Metrics Columns
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.markdown(
         """
         <div class="metric-card-glass">
-            <div class="metric-icon">💧</div>
-            <div class="metric-label-glass">Extreme Water Savings</div>
-            <p class="metric-desc-glass">Research proves that small changes—like upgrading from a checkbook method to a sensor network—can reduce water usage by <b>20% or more!</b></p>
+            <div class="metric-icon">⚡</div>
+            <div class="metric-label-glass">Low Effort</div>
+            <p class="metric-desc-glass">Quick to start and very easy to implement. Takes practically no extra time from your daily routine while delivering massive value.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -234,9 +229,9 @@ with col2:
     st.markdown(
         """
         <div class="metric-card-glass">
-            <div class="metric-icon">🌱</div>
-            <div class="metric-label-glass">Maximum Yield Growth</div>
-            <p class="metric-desc-glass">Healthier plants produce better harvests. Precision soil moisture targeting allows your crops to reach their absolute maximum growth potential.</p>
+            <div class="metric-icon">💧</div>
+            <div class="metric-label-glass">Water Savings</div>
+            <p class="metric-desc-glass">Precision irrigation changes, such as moving to sensor networks, cut wasteful usage by 20% or more easily!</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -246,9 +241,21 @@ with col3:
     st.markdown(
         """
         <div class="metric-card-glass">
-            <div class="metric-icon">📈</div>
+            <div class="metric-icon">🌱</div>
+            <div class="metric-label-glass">Higher Yield</div>
+            <p class="metric-desc-glass">Healthier plants and robust harvests. Correct soil moisture maximizes your crops' absolute growth potential.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+with col4:
+    st.markdown(
+        """
+        <div class="metric-card-glass">
+            <div class="metric-icon">📉</div>
             <div class="metric-label-glass">Cost Reduction</div>
-            <p class="metric-desc-glass">Lower pumping energy, reduced fertilizer leaching, and operational efficiency translate directly into significantly higher farm profits.</p>
+            <p class="metric-desc-glass">Lowering pumping energy and minimizing fertilizer runoff efficiently transforms into greater operational profit.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -256,16 +263,15 @@ with col3:
 
 # CTA Section
 st.markdown("<div class='cta-glass'>", unsafe_allow_html=True)
-st.markdown("<div class='cta-title'>Ready to transform your farm?</div>", unsafe_allow_html=True)
-st.markdown("<div class='cta-subtitle'>Get personalized estimates for plant yield improvements, water usage, and payback periods in seconds.</div>", unsafe_allow_html=True)
+st.markdown("<div class='cta-title'>Ready to transform your farm with zero hassle?</div>", unsafe_allow_html=True)
+st.markdown("<div class='cta-subtitle'>Get personalized estimates requiring minimal effort for massive plant yield and water usage improvements.</div>", unsafe_allow_html=True)
 
-# Using st.page_link for robust multi-page navigation styling
 col_empty1, col_btn, col_empty2 = st.columns([1, 2, 1])
 with col_btn:
     st.markdown(
         '''
         <a href="Irrigation_Tool" target="_self" style="
-            background: linear-gradient(90deg, #00F260, #0575E6);
+            background: #2e8b57;
             color: white;
             font-family: 'Outfit', sans-serif;
             font-size: 1.3rem;
@@ -274,13 +280,13 @@ with col_btn:
             border-radius: 50px;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 242, 96, 0.4);
+            box-shadow: 0 10px 25px rgba(46, 139, 87, 0.4);
             display: inline-block;
             text-align: center;
             width: 100%;
             box-sizing: border-box;
         ">
-            💧 Get Your Recommendation 🚀
+            💧 Get Your Recommendation Now 🚀
         </a>
         ''',
         unsafe_allow_html=True
