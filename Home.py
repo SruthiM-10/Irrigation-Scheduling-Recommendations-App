@@ -72,24 +72,33 @@ st.markdown(
     }
 
     .metric-card-glass {
+        /* Gradient: Crisp White to Deep Professional Teal */
         background: linear-gradient(
-            135deg, 
-            rgba(0, 77, 64, 0.9) 0%, 
-            rgba(255, 255, 255, 0.98) 70%
+            105deg, 
+            rgba(255, 255, 255, 0.98) 0%, 
+            rgba(255, 255, 255, 0.95) 40%,
+            rgba(0, 77, 64, 0.95) 100%
         );
         
-        backdrop-filter: blur(15px);
-        padding: 2.5rem 2rem;
-        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        padding: 2.2rem 1.8rem;
+        border-radius: 24px;
         text-align: left;
         
-        border: 1px solid rgba(0, 121, 107, 0.2);
-        border-top: 1px solid rgba(255, 255, 255, 0.9);
+        /* Subtle border that matches the deep end */
+        border: 1px solid rgba(0, 77, 64, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
         
-        transition: all 0.4s ease;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         height: 100%;
-        color: #002d26; /* Deep dark teal for the text */
-        box-shadow: 0 12px 24px rgba(0, 77, 64, 0.1);
+        
+        /* Use a color that works on both white and teal, 
+           or we can target the child elements specifically */
+        color: #002d26; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .metric-card-glass:hover {
