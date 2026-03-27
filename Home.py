@@ -21,13 +21,6 @@ st.markdown(
         font-family: 'Outfit', sans-serif !important;
     }
 
-    /* Fixed Background for the whole app */
-    .stApp {
-        background: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-    }
 
     /* White Mode Glassmorphism Hero Section */
     .hero-glass {
