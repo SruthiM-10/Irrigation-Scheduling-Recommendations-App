@@ -73,10 +73,9 @@ st.markdown(
 
     .metric-card-glass {
         background: linear-gradient(
-            145deg, 
-            rgba(255, 255, 255, 0.98) 0%, 
-            rgba(232, 245, 233, 0.95) 50%,
-            rgba(200, 230, 201, 0.5) 100%
+            135deg, 
+            rgba(27, 94, 32, 0.95) 0%,   /* Deep Forest Green */
+            rgba(46, 139, 87, 0.9) 100%   /* Sea Green */
         );
         
         backdrop-filter: blur(20px);
