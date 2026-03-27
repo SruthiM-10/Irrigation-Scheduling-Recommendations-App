@@ -75,7 +75,6 @@ st.markdown(
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        padding: 2.5rem 2rem;
         border-radius: 20px;
         text-align: left;
         border: 1px solid rgba(0, 0, 0, 0.1);
@@ -136,6 +135,7 @@ st.markdown(
         text-align: center;
         border: 2px solid #2e8b57;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border-radius: 20px;
         
         color: #2e8b57;
         font-size: 2.5rem;
@@ -150,6 +150,7 @@ st.markdown(
         -webkit-backdrop-filter: blur(20px);
         text-align: center;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border-radius: 20px;
         
         color: #444;
         font-size: 1.3rem;
