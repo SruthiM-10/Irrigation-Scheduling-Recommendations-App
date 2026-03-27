@@ -72,7 +72,6 @@ st.markdown(
     }
 
     .metric-card-glass {
-        /* Gradient: Crisp White to Deep Professional Teal */
         background: linear-gradient(
             105deg, 
             rgba(255, 255, 255, 0.98) 0%, 
@@ -85,15 +84,13 @@ st.markdown(
         border-radius: 24px;
         text-align: left;
         
-        /* Subtle border that matches the deep end */
+        border-left: 8px solid #004d40;
         border: 1px solid rgba(0, 77, 64, 0.1);
         border-top: 1px solid rgba(255, 255, 255, 0.8);
         
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         height: 100%;
-        
-        /* Use a color that works on both white and teal, 
-           or we can target the child elements specifically */
+
         color: #002d26; 
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         display: flex;
