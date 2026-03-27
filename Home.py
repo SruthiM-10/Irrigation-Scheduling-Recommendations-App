@@ -131,8 +131,7 @@ st.markdown(
         text-align: center;
     }
     
-    /* Modern white CTA Section */
-    .cta-glass {
+    .cta-title {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -142,9 +141,7 @@ st.markdown(
         border: 2px solid #2e8b57;
         margin-bottom: 4rem;
         box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-    
-    .cta-title {
+        
         color: #2e8b57;
         font-size: 2.5rem;
         font-weight: 800;
@@ -152,6 +149,16 @@ st.markdown(
     }
     
     .cta-subtitle {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 4rem 2rem;
+        text-align: center;
+        border: 2px solid #2e8b57;
+        margin-bottom: 4rem;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        
         color: #444;
         font-size: 1.3rem;
         margin-bottom: 2.5rem;
@@ -178,7 +185,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<div class='title-wrapper'><h2 class='section-title'>Why Optimize Your Irrigation?</h2></div>", unsafe_allow_html=True)
+st.markdown("<div class='title-wrapper'><h2 class='section-title'>Why Follow our Recommendations?</h2></div>", unsafe_allow_html=True)
 
 # Metrics Columns
 col1, col2, col3, col4 = st.columns(4)
@@ -189,7 +196,7 @@ with col1:
         <div class="metric-card-glass">
             <div class="metric-icon">⚡</div>
             <div class="metric-label-glass">Low Effort</div>
-            <p class="metric-desc-glass">Quick to start and very easy to implement. Takes practically no extra time from your daily routine while delivering massive value.</p>
+            <p class="metric-desc-glass">Quick to start and very easy to implement. Personalized to the kind of system YOU prefer.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -201,7 +208,7 @@ with col2:
         <div class="metric-card-glass">
             <div class="metric-icon">💧</div>
             <div class="metric-label-glass">Water Savings</div>
-            <p class="metric-desc-glass">Precision irrigation changes, such as moving to sensor networks, cut wasteful usage by 20% or more easily!</p>
+            <p class="metric-desc-glass">Small irrigation scheduling method changes, such as between a sensor network and a checkbook balancing method, can cut water usage by 20% or more!</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -231,9 +238,8 @@ with col4:
         unsafe_allow_html=True
     )
 
-st.markdown("<div class='cta-glass'>", unsafe_allow_html=True)
-st.markdown("<div class='cta-title'>Ready to transform your farm with zero hassle?</div>", unsafe_allow_html=True)
-st.markdown("<div class='cta-subtitle'>Get personalized estimates requiring minimal effort for massive plant yield and water usage improvements.</div>", unsafe_allow_html=True)
+st.markdown("<div class='cta-title'>Ready to transform your farm?</div>", unsafe_allow_html=True)
+st.markdown("<div class='cta-subtitle'>Get personalized estimates requiring minimal effort for plant yield and water usage improvements.</div>", unsafe_allow_html=True)
 
 col_empty1, col_btn, col_empty2 = st.columns([1, 2, 1])
 with col_btn:
