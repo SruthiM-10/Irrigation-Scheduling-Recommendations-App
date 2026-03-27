@@ -72,17 +72,27 @@ st.markdown(
     }
 
     .metric-card-glass {
-        background: rgba(255, 255, 255, 0.95);
+        background: linear-gradient(
+            135deg, 
+            rgba(46, 139, 87, 0.15) 0%, 
+            rgba(255, 255, 255, 0.9) 50%, 
+            rgba(144, 238, 144, 0.1) 100%
+        );
+        
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        padding: 0rem 1rem;
+        padding: 1.5rem; /* Increased padding for better breathing room */
         border-radius: 20px;
         text-align: left;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        
+        border: 1px solid rgba(46, 139, 87, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.5); /* Adds a "shine" on top */
+        
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         height: 100%;
         color: #111;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        
+        box-shadow: 0 10px 30px rgba(46, 139, 87, 0.1);
     }
     
     .metric-card-glass:hover {
@@ -142,7 +152,6 @@ st.markdown(
         font-size: 2.5rem;
         font-weight: 800;
         margin-top: 1rem;
-        margin-bottom: 1rem;
     }
     
     .cta-subtitle {
