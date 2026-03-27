@@ -77,7 +77,7 @@ st.markdown(
         -webkit-backdrop-filter: blur(16px);
         padding: 2.5rem 2rem;
         border-radius: 20px;
-        text-align: center;
+        text-align: left;
         border: 1px solid rgba(0, 0, 0, 0.1);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         height: 100%;
@@ -103,18 +103,16 @@ st.markdown(
         font-weight: 700;
         font-family: 'Outfit', sans-serif;
         color: #111;
-        margin-bottom: 1rem;
         letter-spacing: 0.5px;
     }
     
     .metric-desc-glass {
         color: #555;
         font-size: 1.05rem;
-        line-height: 1.6;
     }
 
     h2.section-title {
-        text-align: center;
+        text-align: left;
         margin-bottom: 3rem;
         color: #2e8b57;
         background: rgba(255,255,255,0.95);
@@ -142,6 +140,7 @@ st.markdown(
         color: #2e8b57;
         font-size: 2.5rem;
         font-weight: 800;
+        margin-top: 1rem;
         margin-bottom: 1rem;
     }
     
@@ -184,8 +183,7 @@ st.markdown("<div class='title-wrapper'><h2 class='section-title'>Why Follow our
 st.markdown(
     """
     <div class="metric-card-glass">
-        <div class="metric-icon">⚡</div>
-        <div class="metric-label-glass">Low Effort</div>
+        <div class="metric-icon">⚡ Low Effort</div>
         <p class="metric-desc-glass">Quick to start and very easy to implement. Personalized to the kind of system YOU prefer.</p>
     </div>
     """,
@@ -194,8 +192,7 @@ st.markdown(
 st.markdown(
     """
     <div class="metric-card-glass">
-        <div class="metric-icon">💧</div>
-        <div class="metric-label-glass">Water Savings</div>
+        <div class="metric-icon">💧Water Savings</div>
         <p class="metric-desc-glass">Small irrigation scheduling method changes, such as between a sensor network and a checkbook balancing method, can cut water usage by 20% or more!</p>
     </div>
     """,
@@ -204,8 +201,7 @@ st.markdown(
 st.markdown(
     """
     <div class="metric-card-glass">
-        <div class="metric-icon">🌱</div>
-        <div class="metric-label-glass">Higher Yield</div>
+        <div class="metric-icon">🌱Higher Yield</div>
         <p class="metric-desc-glass">Healthier plants and robust harvests. Correct soil moisture maximizes your crops' absolute growth potential.</p>
     </div>
     """,
@@ -214,8 +210,7 @@ st.markdown(
 st.markdown(
     """
     <div class="metric-card-glass">
-        <div class="metric-icon">📉</div>
-        <div class="metric-label-glass">Cost Reduction</div>
+        <div class="metric-icon">📉Cost Reduction</div>
         <p class="metric-desc-glass">Lowering pumping energy and minimizing fertilizer runoff efficiently transforms into greater operational profit.</p>
     </div>
     """,
