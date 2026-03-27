@@ -19,10 +19,10 @@ st.markdown(
     }
 
     .stApp {
-        background: url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
-        background-attachment: fixed;
+        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.3)), 
+                    url("https://png.pngtree.com/thumb_back/fw800/background/20251102/pngtree-center-pivot-irrigation-in-a-field-at-sunset-light-image_20201383.webp");
+        background-attachment: scroll;
         background-size: cover;
-        background-position: center;
     }
 
     /* Container for the About Section */
@@ -101,8 +101,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<div class='about-wrapper'>", unsafe_allow_html=True)
-st.markdown("<div class='about-title'>Meet the Creator</div>", unsafe_allow_html=True)
+st.markdown("<div class='about-wrapper'>Meet the Creator</div>", unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 1.5], gap="large")
 
