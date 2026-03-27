@@ -49,6 +49,16 @@ st.markdown(
     [data-testid="stAppViewContainer"] {{
         background-color: rgba(0,0,0,0); /* Make sure the container is transparent */
     }}
+    
+    /* Force Sidebar Navigation to stay visible and black */
+    [data-testid="stSidebarNav"] {{
+        display: block !important;
+    }}
+    
+    [data-testid="stSidebarNav"] span {{
+        color: #111111 !important; /* Ensure text isn't white */
+        font-weight: 600 !important;
+    }}
     </style>
     """,
     unsafe_allow_html=True
