@@ -107,7 +107,8 @@ with col1:
     st.markdown(
         f"""
         <div class='photo-area' style='text-align: center;'>
-            <img src='https://lh3.googleusercontent.com/sitesv/APaQ0SRyaltfvKr4EJOIX0z0GutKqfAs0l6ZVk-HpBolwhxUx60Z3CTpkg3mMD62LOozDze-iMtJpmCInQUl3V9_34bw7AFmn3gIcGAWiaPXL7JboxNUWxNjbTodkopPv9wfltcbVXRyIuyQawPQiF0uw5N0mYW5TWzfw6m7OFBvO28qT9h-UnMiO_nFg_1LPC_BBpKzsK1LwxPMJG3BueCtHw5lRZqVQfRgWWV0=w1280' style='width: 150px; height: 150px; border-radius: 50%; object-fit: cover;'>
+            <img src='https://lh3.googleusercontent.com/sitesv/APaQ0SRyaltfvKr4EJOIX0z0GutKqfAs0l6ZVk-HpBolwhxUx60Z3CTpkg3mMD62LOozDze-iMtJpmCInQUl3V9_34bw7AFmn3gIcGAWiaPXL7JboxNUWxNjbTodkopPv9wfltcbVXRyIuyQawPQiF0uw5N0mYW5TWzfw6m7OFBvO28qT9h-UnMiO_nFg_1LPC_BBpKzsK1LwxPMJG3BueCtHw5lRZqVQfRgWWV0=w1280' 
+                 style='width: 150px; height: 150px; border-radius: 0%; object-fit: cover;'>
             <div style='font-family: Outfit; font-weight: 700; font-size: 1.5rem; color: #111; margin-top: 10px;'>Sruthi</div>
         </div>
         """,
