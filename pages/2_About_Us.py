@@ -106,10 +106,12 @@ col1, col2 = st.columns([1, 1.5], gap="large")
 with col1:
     st.markdown(
         f"""
-        <div class='photo-area' style='text-align: center;'>
+        <div style='text-align: center; margin-bottom: -10px;'>
             <img src='https://lh3.googleusercontent.com/sitesv/APaQ0SRyaltfvKr4EJOIX0z0GutKqfAs0l6ZVk-HpBolwhxUx60Z3CTpkg3mMD62LOozDze-iMtJpmCInQUl3V9_34bw7AFmn3gIcGAWiaPXL7JboxNUWxNjbTodkopPv9wfltcbVXRyIuyQawPQiF0uw5N0mYW5TWzfw6m7OFBvO28qT9h-UnMiO_nFg_1LPC_BBpKzsK1LwxPMJG3BueCtHw5lRZqVQfRgWWV0=w1280' 
-                 style='width: 150px; height: 150px; border-radius: 0%; object-fit: cover;'>
-            <div style='font-family: Outfit; font-weight: 700; font-size: 1.5rem; color: #111; margin-top: 10px;'>Sruthi</div>
+                 style='width: 140px; height: 140px; border-radius: 20px; object-fit: cover;'>
+            <p style='font-family: Outfit; font-weight: 700; font-size: 1.2rem; color: #111; margin-top: 5px; margin-bottom: 0;'>
+                Sruthi
+            </p>
         </div>
         """,
         unsafe_allow_html=True
