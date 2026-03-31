@@ -18,6 +18,7 @@ def load_related_data(user_data, method):
                                 (closest_rows['longitude_decimal_degrees'] - user_data.loc[0, 'longitude_decimal_degrees'])**2
       min_distance = closest_rows['distance'].min()
       closest_rows = closest_rows[closest_rows['distance'] == min_distance]
+      closest_rows['distance'] = (closest_rows['distance']) ** 1/2
 
   if len(closest_rows) == 0:
     return -1, -1, -1, -1, -1
