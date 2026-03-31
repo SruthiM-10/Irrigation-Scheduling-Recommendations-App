@@ -265,12 +265,18 @@ elif st.session_state.page == 'results':
                 st.dataframe(most_related_row)
 
                 with st.expander("More details about irrigation scheduling method"):
-                    for key, value in eval(method_params).items():
-                        st.write(f"* **{key}:** {value}")
+                    if isinstance(method_params, str) and method_params.strip():
+                        for key, value in eval(method_params).items():
+                            st.write(f"* **{key}:** {value}")
+                    else:
+                        st.write("No parameters available.")
 
                 with st.expander("Experimental Setup Details"):
-                    for key, value in eval(setup_params).items():
-                        st.write(f"* **{key}:** {value}")
+                    if isinstance(setup_params, str) and setup_params.strip():
+                        for key, value in eval(setup_params).items():
+                            st.write(f"* **{key}:** {value}")
+                    else:
+                        st.write("No parameters available.")
 
                 st.link_button("**==> Click this to read more of this paper**", link)
 
@@ -296,11 +302,17 @@ elif st.session_state.page == 'results':
                 st.dataframe(most_related_row)
 
                 with st.expander("More details about irrigation scheduling method"):
-                    for key, value in eval(method_params).items():
-                        st.write(f"* **{key}:** {value}")
+                    if isinstance(method_params, str) and method_params.strip():
+                        for key, value in eval(method_params).items():
+                            st.write(f"* **{key}:** {value}")
+                    else:
+                        st.write("No parameters available.")
 
                 with st.expander("Experimental Setup Details"):
-                    for key, value in eval(setup_params).items():
-                        st.write(f"* **{key}:** {value}")
+                    if isinstance(setup_params, str) and setup_params.strip():
+                        for key, value in eval(setup_params).items():
+                            st.write(f"* **{key}:** {value}")
+                    else:
+                        st.write("No parameters available.")
 
                 st.link_button("**==> Click this to read more of this paper**", link)
