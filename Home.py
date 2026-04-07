@@ -90,7 +90,7 @@ if st.session_state.page == 'home':
         """
         <p style="font-size:30px;">
             Please click <a href="https://sites.google.com/view/irrigationmatch/home">this link</a> 
-            to go to the full website.
+            to view the full website.
         </p>
         """,
         unsafe_allow_html=True
