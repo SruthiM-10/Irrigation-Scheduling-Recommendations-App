@@ -86,6 +86,8 @@ if st.session_state.page == 'home':
     </style>
     """, unsafe_allow_html=True)
 
+    st.markdown(
+        "Please go to [this link](https://sites.google.com/view/irrigationmatch/home) to view the full website. This page is just the demo.")
     # Page title
     st.markdown("<h1 style='text-align: center; color: #2e8b57;'>🌱 Irrigation Method Recommendation</h1>",
                 unsafe_allow_html=True)
