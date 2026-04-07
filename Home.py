@@ -9,6 +9,7 @@ Original file is located at
 
 import streamlit as st
 import pandas as pd
+import os
 from collections import defaultdict
 from Utils import load_model, load_related_data, get_info
 
@@ -222,14 +223,20 @@ elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
         st.rerun()
+
+    if not os.path.exists("counter.txt"):
+        with open("counter.txt", "w") as f:
+            f.write("0")
+
     with open("counter.txt", "r") as f:
-        a = f.readline()  # starts as a string
-        a = 0 if a == "" else int(a)  # check if its an empty string, otherwise should be able to cast using int()
+        content = f.read().strip()
+        a = int(content) if content else 0
 
     a += 1
+
     with open("counter.txt", "w") as f:
-        f.truncate()
-        f.write(f"{a}")
+        f.write(str(a))
+
     with st.container(border=True):
         st.markdown('<div id="results-anchor"></div>', unsafe_allow_html=True)
 
