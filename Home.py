@@ -88,7 +88,7 @@ if st.session_state.page == 'home':
 
     st.markdown(
         """
-        <p style="font-size:15px;">
+        <p style="font-size:30px;">
             Please click <a href="https://sites.google.com/view/irrigationmatch/home">this link</a> 
             to go to the full website.
         </p>
