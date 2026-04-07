@@ -208,8 +208,6 @@ elif st.session_state.page == 'results':
         plant_type = st.session_state.plant_type
         model_type = st.session_state.model_type
 
-        st.success("Form submitted successfully!")
-
         # Display the input values (for demonstration)
         with st.expander("View Input Parameters"):
             st.write(f"- Latitude: {latitude}°")
@@ -217,6 +215,8 @@ elif st.session_state.page == 'results':
             st.write(f"- Altitude: {altitude} meters")
             st.write(f"- Soil Type: {soil_type}")
             st.write(f"- Plant Type: {plant_type}")
+
+        st.success("Based on the above input parameters you provided, here are the top two recommended irrigation scheduling methods for your farm!")
 
         user_input = defaultdict(list)
         for method in METHOD_LABEL:
