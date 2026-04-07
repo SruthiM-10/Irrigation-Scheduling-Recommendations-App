@@ -222,6 +222,14 @@ elif st.session_state.page == 'results':
     if st.button("Back"):
         st.session_state.page = 'home'
         st.rerun()
+    with open("counter.txt", "r") as f:
+        a = f.readline()  # starts as a string
+        a = 0 if a == "" else int(a)  # check if its an empty string, otherwise should be able to cast using int()
+
+    a += 1
+    with open("counter.txt", "w") as f:
+        f.truncate()
+        f.write(f"{a}")
     with st.container(border=True):
         st.markdown('<div id="results-anchor"></div>', unsafe_allow_html=True)
 
