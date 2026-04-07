@@ -19,6 +19,19 @@ st.set_page_config(
     layout="wide"
 )
 
+from supabase import create_client
+
+SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+def increment_counter():
+    supabase.rpc("increment_clicks").execute()
+
+def get_count():
+    res = supabase.table("metrics").select("clicks").eq("id", 1).execute()
+    return res.data[0]["clicks"]
+
 st.markdown(
     f"""
     <style>
@@ -224,18 +237,7 @@ elif st.session_state.page == 'results':
         st.session_state.page = 'home'
         st.rerun()
 
-    if not os.path.exists("counter.txt"):
-        with open("counter.txt", "w") as f:
-            f.write("0")
-
-    with open("counter.txt", "r") as f:
-        content = f.read().strip()
-        a = int(content) if content else 0
-
-    a += 1
-
-    with open("counter.txt", "w") as f:
-        f.write(str(a))
+    increment_counter()
 
     with st.container(border=True):
         st.markdown('<div id="results-anchor"></div>', unsafe_allow_html=True)
