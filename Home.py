@@ -109,7 +109,7 @@ if st.session_state.page == 'home':
     st.markdown(f"""
     <h1 style='text-align: center; color: #2e8b57;'>
         <img src="data:image/png;base64,{img_base64}" 
-             style="width:50px; vertical-align: middle; margin-right:10px;">
+             style="width:60px; vertical-align: middle; margin-right:10px;">
         Irrigation Method Recommendation Tool
     </h1>
     """, unsafe_allow_html=True)
