@@ -96,9 +96,20 @@ if st.session_state.page == 'home':
         unsafe_allow_html=True
     )
     # Page title
-    st.markdown("""
+    import base64
+
+
+    def get_base64(image_path):
+        with open(image_path, "rb") as img:
+            return base64.b64encode(img.read()).decode()
+
+
+    img_base64 = get_base64("logo.png")
+
+    st.markdown(f"""
     <h1 style='text-align: center; color: #2e8b57;'>
-        <img src="logo.png" style="width:40px; vertical-align: middle; margin-right:10px;">
+        <img src="data:image/png;base64,{img_base64}" 
+             style="width:40px; vertical-align: middle; margin-right:10px;">
         Irrigation Method Recommendation Tool
     </h1>
     """, unsafe_allow_html=True)
