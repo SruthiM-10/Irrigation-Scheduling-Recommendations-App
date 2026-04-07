@@ -13,7 +13,7 @@ from collections import defaultdict
 from Utils import load_model, load_related_data, get_info
 
 st.set_page_config(
-    page_title="Irrigation Method Recommendation",
+    page_title="Irrigation Method Recommendation Tool",
     page_icon="💧",
     layout="wide"
 )
@@ -96,7 +96,7 @@ if st.session_state.page == 'home':
         unsafe_allow_html=True
     )
     # Page title
-    st.markdown("<h1 style='text-align: center; color: #2e8b57;'>🌱 Irrigation Method Recommendation</h1>",
+    st.markdown("<h1 style='text-align: center; color: #2e8b57;'>🌱 Irrigation Method Recommendation Tool</h1>",
                 unsafe_allow_html=True)
 
     with st.form("irrigation_form"):
