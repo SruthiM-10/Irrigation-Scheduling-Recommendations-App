@@ -96,8 +96,12 @@ if st.session_state.page == 'home':
         unsafe_allow_html=True
     )
     # Page title
-    st.markdown("<h1 style='text-align: center; color: #2e8b57;'>🌱 Irrigation Method Recommendation Tool</h1>",
-                unsafe_allow_html=True)
+    st.markdown("""
+    <h1 style='text-align: center; color: #2e8b57;'>
+        <img src="logo.png" style="width:40px; vertical-align: middle; margin-right:10px;">
+        Irrigation Method Recommendation Tool
+    </h1>
+    """, unsafe_allow_html=True)
 
     with st.form("irrigation_form"):
         st.markdown("### Location Information")
