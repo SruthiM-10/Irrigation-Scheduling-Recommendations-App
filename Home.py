@@ -103,7 +103,7 @@ if st.session_state.page == 'home':
     st.markdown(
         """
         <p style="font-size:30px;">
-            Please click <a href="https://sites.google.com/view/irrigationmatch/home">this link</a> 
+            Please click <a href="https://www.irrigationmatch.com">this link</a> 
             to view the full website.
         </p>
         """,
